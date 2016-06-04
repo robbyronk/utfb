@@ -1,0 +1,41 @@
+features:
+choose budget period (weekly, fortnightly, monthly)
+customizable categories
+invite people to budget
+add incomes
+add expenses
+budget income into buckets
+categorize expenses
+re-adjust buckets
+add/remove categories
+see available amounts in buckets
+
+todo:
+sketch out income page
+ separate to help separate the idea of income
+ and expenses
+
+sketch out budget page
+ - area to add expenses
+ - categories
+  - show how much is left in category
+  - show hom much has been spent in category
+  - show how much is budgeted in category
+
+sketch out expenses page
+ list of expenses for category and period
+ - button to add more expenses
+
+sketch out start page
+
+wire up interface with state using reselect
+
+wire up state with backend using sagas
+
+write backend
+ - auth0 for auth
+ - crud endpoints
+  - categories
+  - incomes
+  - expenses
+  - budgets
