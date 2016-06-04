@@ -17,6 +17,7 @@ export default class Navigation extends Component {
               <li className="menu-text-name">
                 <Link to='/' title="Dashboard"><i className="fa fa-th-large"></i></Link>
               </li>
+              <li><Link to='/income'>Income</Link></li>
               <li><Link to='/budget'>Budget</Link></li>
             </ul>
           </div>
