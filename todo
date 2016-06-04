@@ -10,8 +10,100 @@ re-adjust buckets
 add/remove categories
 see available amounts in buckets
 
+flow:
+    start:
+     - how often do you get paid?
+      - set period length based on answer
+     - when is your next paycheck?
+      - set period start based on answer
+     - how much do you have in your account now?
+      - create initial income based on answer
+     - goto budget income
+
+    budget income:
+     - how much do you need in each category for
+       expenses until your next paycheck?
+     - leftovers go into 'overflow' account
+     - click next to finish and goto check budgets
+
+    payday:
+     - add income that you have available (cash,
+       bank account, etc)
+     - goto budget income
+
+    check budgets:
+     - show budgets and how much is left in each
+
+    add expense:
+     - add expense as they happen
+     - if available amount is negative goto rebalance
+     - goto check budgets
+
+    rebalance:
+     - take some money out of other categories to
+       balance negative category
+     - goto check budgets when finished
+
 todo:
+come up with better names for things
+
 sketch out start page
+ - how often do you get paid?
+  - weekly, fortnightly, bimonthly, monthly
+ - when is your next paycheck coming in?
+ - how much do you have in your account right now?
+ - button to finish
+
+sketch out budget income page
+ - table with two columns, all editable
+  - category name
+  - budget amount
+ - button to add categories
+ - button to finish and go to check budgets page
+ - button to toggle delete mode
+  - adds column of delete switches
+  - turns finish button into delete button
+
+sketch out payday page
+ - table with three columns, all editable
+  - date
+  - who paid you
+  - how much
+ - button to add income
+ - button to finish and go to budget income page
+ - button to toggle delete mode
+  - turns finish button into delete button
+  - adds column of delete switches
+
+sketch out check budgets page
+ - table with 2 columns, not editable
+  - category name
+  - how much is left in the category
+
+sketch out expense page
+ - table with three columns, all editable
+  - date
+  - who you paid
+  - how much
+ - button to add expense
+ - button to finish and go to check budgets page
+ - button to toggle delete mode
+  - turns finish button into delete button
+  - adds column of delete switches
+
+sketch out rebalance page
+ - table with 4 columns
+  - category name
+  - amount budgeted (editable)
+  - amount spent
+  - amount left
+ - finish button that is disable while any amount left
+   is negative
+
+create list component
+ - add button
+ - delete mode
+ - save (finish) button
 
 create reducers
  - expenses
