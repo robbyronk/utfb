@@ -12,33 +12,27 @@ class PageBudget extends Component {
                     <thead>
                     <tr>
                         <td>Category</td>
-                        <td>Budgeted</td>
-                        <td>Spent</td>
-                        <td>Left</td>
+                        <td>Amount Left</td>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
                         <td>
-                            <input type="text" defaultValue="aoeu"/>
+                            Rent
                         </td>
                         <td>
-                            <input type="text" defaultValue="100"/>
+                            $0
                         </td>
+                    </tr>
+                    <tr>
                         <td>
-                            <input type="text" defaultValue="60"/>
+                            Restaurants
                         </td>
                         <td>
                             $40
                         </td>
                     </tr>
                     </tbody>
-                    <tfoot>
-                    <tr>
-                        <td>Overflow</td>
-                        <td>$100</td>
-                    </tr>
-                    </tfoot>
                 </table>
             </div>
         )
