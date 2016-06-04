@@ -6,6 +6,7 @@ import Budget from './containers/page-budget'
 import BudgetIncome from './containers/page-budget-income'
 import Expenses from './containers/page-expenses'
 import Income from './containers/page-income'
+import Rebalance from './containers/page-rebalance'
 import Start from './containers/page-start'
 import Dashboard from './containers/page-dashboard'
 import NotFound from './containers/page-not-found'
@@ -17,6 +18,7 @@ export default (
     <Route path="/expenses" component={Expenses} />
     <Route path="/budget" component={Budget} />
     <Route path="/budget-income" component={BudgetIncome} />
+    <Route path="/rebalance" component={Rebalance} />
     <Route path="/start" component={Start} />
     <Route path="*" component={NotFound} />
   </Route>

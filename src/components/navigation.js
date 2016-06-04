@@ -18,6 +18,7 @@ export default class Navigation extends Component {
                 <Link to='/start' title="Start"><i className="fa fa-th-large"></i></Link>
               </li>
               <li><Link to='/income'>Payday</Link></li>
+              <li><Link to='/rebalance'>Rebalance</Link></li>
               <li><Link to='/budget'>Budget</Link></li>
               <li><Link to='/budget-income'>Budget Income</Link></li>
             </ul>
