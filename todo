@@ -17,6 +17,12 @@ sketch out expenses page
 
 sketch out start page
 
+create reducers
+ - expenses
+ - incomes
+ - categories
+ - budgets
+
 wire up interface with state using reselect
 
 wire up state with backend using sagas
