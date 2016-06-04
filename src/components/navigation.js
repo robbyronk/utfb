@@ -19,6 +19,7 @@ export default class Navigation extends Component {
               </li>
               <li><Link to='/income'>Income</Link></li>
               <li><Link to='/budget'>Budget</Link></li>
+              <li><Link to='/budget-income'>Budget Income</Link></li>
             </ul>
           </div>
           <div className="top-bar-right">
