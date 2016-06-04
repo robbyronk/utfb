@@ -22,12 +22,6 @@ export default class Navigation extends Component {
               <li><Link to='/budget-income'>Budget Income</Link></li>
             </ul>
           </div>
-          <div className="top-bar-right">
-            <ul className="menu">
-              <li><input type="search" placeholder="Search" /></li>
-              <li><button type="button" className="button">Find</button></li>
-            </ul>
-          </div>
         </div>
 
       </div>
