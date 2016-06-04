@@ -15,7 +15,7 @@ export default class Navigation extends Component {
           <div className="top-bar-left">
             <ul className="dropdown menu" data-dropdown-menu ref={(elem) => {console.log(instance)}}>
               <li className="menu-text-name">
-                <Link to='/' title="Dashboard"><i className="fa fa-th-large"></i></Link>
+                <Link to='/start' title="Start"><i className="fa fa-th-large"></i></Link>
               </li>
               <li><Link to='/income'>Income</Link></li>
               <li><Link to='/budget'>Budget</Link></li>
