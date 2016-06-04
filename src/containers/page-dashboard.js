@@ -1,38 +1,30 @@
-import React, { Component, PropTypes } from 'react'
-import { connect } from 'react-redux'
-
-import {
-  removeCallout
-} from '../actions'
-
-import Dashboard from '../components/dashboard'
+import React, {Component, PropTypes} from "react";
+import {connect} from "react-redux";
+import {Link} from "react-router";
 
 class PageDashboard extends Component {
 
   render() {
     return (
-      <Dashboard
-        url={this.props.url}
-        callouts={this.props.callouts}
-        removeCallout={this.props.removeCallout}
-      />
+      <ul>
+        <li><Link to='/start' title="Start">Start</Link></li>
+        <li><Link to='/income'>Payday</Link></li>
+        <li><Link to='/budget-income'>Budget Income</Link></li>
+        <li><Link to='/budget'>Budget</Link></li>
+        <li><Link to='/expenses'>Expense</Link></li>
+        <li><Link to='/rebalance'>Rebalance</Link></li>
+      </ul>
     )
   }
 }
 
 PageDashboard.propTypes = {
-  url: PropTypes.string.isRequired,
-  callouts: PropTypes.array.isRequired,
-  removeCallout: PropTypes.func.isRequired,
 }
 
 function mapStateToProps(state) {
   return {
-    url: state.routing.location.pathname,
-    callouts: state.notifications.callouts
   }
 }
 
 export default connect(mapStateToProps, {
-  removeCallout
 })(PageDashboard)
