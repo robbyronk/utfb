@@ -6,9 +6,9 @@ class PageBudgetIncome extends Component {
   render() {
     const deleteSwitchStyle = {
       'display': 'flex',
-      'flex-direction': 'row',
-      'justify-content': 'space-around',
-      'align-items': 'center'
+      'flexDirection': 'row',
+      'justifyContent': 'space-around',
+      'alignItems': 'center'
     }
 
     return (
