@@ -100,7 +100,9 @@ sketch out rebalance page
  - finish button that is disable while any amount left
    is negative
 
-create list component
+componentize pages
+
+create list components
  - add button
  - delete mode
  - save (finish) button
