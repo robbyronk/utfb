@@ -5,6 +5,10 @@ import Table from '../components/table'
 
 class PageBudget extends Component {
 
+    // components
+    //  table component
+    //  row component
+    
     render() {
         return (
             <div>
