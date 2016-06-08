@@ -1,13 +1,10 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
+import MoneyInput from '../components/money-input'
 
 class PageIncome extends Component {
 
   render() {
-    const inputGroupLabelStyle = {
-      'padding': '0 0.3rem'
-    }
-
     // todo date picker for paycheck
     // todo use flex instead of all these p tags
     return (
@@ -31,13 +28,7 @@ class PageIncome extends Component {
         <p><input type="text"/></p>
         <p>How much do you have in your account right now?</p>
         <p>
-          <div className="input-group">
-                <span className="input-group-label"
-                      style={inputGroupLabelStyle}>$</span>
-            <input className="input-group-field"
-                   defaultValue="500"
-                   type="number"/>
-          </div>
+          <MoneyInput/>
         </p>
         <p>
           <button className="button expanded"> Finish</button>
