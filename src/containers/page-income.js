@@ -1,13 +1,12 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import IncomeRow from '../components/income-row'
+import DeleteRow from '../components/delete-row'
 
 class PageIncome extends Component {
   // todo datepicker
   // components:
   //  income table component
-  //  income row component
-  //  delete mode row component
 
   render() {
     const deleteSwitchStyle = {
@@ -34,27 +33,6 @@ class PageIncome extends Component {
           <IncomeRow/>
           <IncomeRow/>
           <IncomeRow/>
-          <tr>
-            <td>1/1/2016</td>
-            <td>Acme Co</td>
-            <td>
-              <div style={deleteSwitchStyle}>
-                <div>$200</div>
-                <div className="switch tiny">
-                  <input className="switch-input"
-                         id="tinySwitch"
-                         name="exampleSwitch"
-                         type="checkbox"/>
-                  <label className="switch-paddle"
-                         htmlFor="tinySwitch">
-                                <span className="show-for-sr">
-                                  Deleting
-                                </span>
-                  </label>
-                </div>
-              </div>
-            </td>
-          </tr>
           </tbody>
           <tfoot>
           <tr>
@@ -63,6 +41,17 @@ class PageIncome extends Component {
             <td>$500</td>
           </tr>
           </tfoot>
+        </table>
+        <table>
+          <thead>
+          <tr>
+            <td>_label_</td>
+            <td>Delete?</td>
+          </tr>
+          </thead>
+          <tbody>
+          <DeleteRow label="1/1/2016 Acme Co $100"/>
+          </tbody>
         </table>
         <button className="success button expanded">Finish</button>
       </div>
