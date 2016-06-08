@@ -1,7 +1,5 @@
-import React, {Component} from 'react'
-import {connect} from 'react-redux'
-
-import Table from '../components/table'
+import React, {Component} from "react";
+import {connect} from "react-redux";
 
 class PageBudget extends Component {
 
