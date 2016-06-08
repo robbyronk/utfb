@@ -1,13 +1,10 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
+import RebalanceRow from '../components/rebalance-row'
 
 class PageRebalance extends Component {
 
   render() {
-    const inputGroupLabelStyle = {
-      'padding': '0 0.3rem'
-    }
-
     return (
       <div>
         <table>
@@ -20,46 +17,9 @@ class PageRebalance extends Component {
           </tr>
           </thead>
           <tbody>
-          <tr>
-            <td>
-              Rent
-            </td>
-            <td>
-              <div className="input-group">
-                <span className="input-group-label"
-                      style={inputGroupLabelStyle}>$</span>
-                <input className="input-group-field"
-                       defaultValue="500"
-                       type="number"/>
-              </div>
-            </td>
-            <td>
-              $500
-            </td>
-            <td>
-              $0
-            </td>
-          </tr>
-          <tr>
-            <td>
-              Restaurants
-            </td>
-            <td>
-              <div className="input-group">
-                <span className="input-group-label"
-                      style={inputGroupLabelStyle}>$</span>
-                <input className="input-group-field"
-                       defaultValue="100"
-                       type="number"/>
-              </div>
-            </td>
-            <td>
-              $60
-            </td>
-            <td>
-              $40
-            </td>
-          </tr>
+          <RebalanceRow/>
+          <RebalanceRow/>
+          <RebalanceRow/>
           </tbody>
           <tfoot>
           <tr>
