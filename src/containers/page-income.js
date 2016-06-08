@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import MoneyInput from '../components/money-input'
+import IncomeRow from '../components/income-row'
 
 class PageIncome extends Component {
   // todo datepicker
@@ -31,32 +31,9 @@ class PageIncome extends Component {
           </tr>
           </thead>
           <tbody>
-          <tr>
-            <td>
-              <input defaultValue="1/1/2016"
-                     type="text"/>
-            </td>
-            <td>
-              <input defaultValue="Acme Co"
-                     type="text"/>
-            </td>
-            <td>
-              <MoneyInput/>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <input defaultValue="1/1/2016"
-                     type="text"/>
-            </td>
-            <td>
-              <input defaultValue="Acme Co"
-                     type="text"/>
-            </td>
-            <td>
-              <MoneyInput/>
-            </td>
-          </tr>
+          <IncomeRow/>
+          <IncomeRow/>
+          <IncomeRow/>
           <tr>
             <td>1/1/2016</td>
             <td>Acme Co</td>
