@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import MoneyInput from '../components/money-input'
+import MoneyInput from "../components/money-input";
 
 class PageIncome extends Component {
 
