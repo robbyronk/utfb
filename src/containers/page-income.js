@@ -3,6 +3,10 @@ import {connect} from "react-redux";
 
 class PageIncome extends Component {
   // todo datepicker
+  // components:
+  //  income table component
+  //  income row component
+  //  delete mode row component
 
   render() {
     const deleteSwitchStyle = {
