@@ -1,11 +1,11 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
+import BudgetRow from "../components/budget-row"
 
 class PageBudget extends Component {
 
   // components
   //  table component
-  //  row component
 
   render() {
     return (
@@ -18,22 +18,12 @@ class PageBudget extends Component {
           </tr>
           </thead>
           <tbody>
-          <tr>
-            <td>
-              Rent
-            </td>
-            <td>
-              $0
-            </td>
-          </tr>
-          <tr>
-            <td>
-              Restaurants
-            </td>
-            <td>
-              $40
-            </td>
-          </tr>
+          <BudgetRow/>
+          <BudgetRow/>
+          <BudgetRow/>
+          <BudgetRow/>
+          <BudgetRow/>
+          <BudgetRow/>
           </tbody>
         </table>
       </div>
