@@ -44,6 +44,23 @@ flow:
        balance negative category
      - goto check budgets when finished
 
+tasks:
+ start using the fine budget:
+  when and how ofter do you get paid
+  how much do you have now
+  budget what you have
+
+ payday:
+  enter in income(s)
+  budget that income
+
+ checking available money:
+  look at the check budgets screen
+
+ making a purchase:
+  add the expense
+  if a budget is negative, rebalance
+
 todo:
 come up with better names for things
 
