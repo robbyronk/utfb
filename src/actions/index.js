@@ -1,26 +1,31 @@
-export const CREATE_CALLOUT = 'CREATE_CALLOUT'
-export function createCallout(type) {
-  const types = ['primary', 'secondary', 'success', 'warning', 'alert']
-  if (type == null) {
-    type = types[parseInt(Math.random() * types.length)]
-  }
-  const id = Math.random().toString().substr(2)
+export const CREATE_INCOME = 'CREATE_INCOME'
+export function createIncome(date, payer, amount) {
+  const id = _.uniqueId('income')
   return {
-    type: CREATE_CALLOUT,
+    type: CREATE_INCOME,
     payload: {
-      message: 'Lorem ipsum ' + id,
-      type: type,
-      id: id
+      id,
+      date,
+      payer,
+      amount
     }
   }
 }
 
-export const REMOVE_CALLOUT = 'REMOVE_CALLOUT'
-export function removeCallout(id) {
+export const UPDATE_INCOME = 'UPDATE_INCOME'
+export function updateIncome(income) {
   return {
-    type: REMOVE_CALLOUT,
+    type: UPDATE_INCOME,
+    payload: income
+  }
+}
+
+export const DELETE_INCOME = 'DELETE_INCOME'
+export function deleteIncome(id) {
+  return {
+    type: DELETE_INCOME,
     payload: {
-      id: id
+      id
     }
   }
 }
