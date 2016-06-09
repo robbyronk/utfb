@@ -6,17 +6,21 @@ export default class IncomeRow extends Component {
     return (
       <tr>
         <td>
-          <input defaultValue="1/1/2016"
+          <input value={this.props.income.date}
                  type="text"/>
         </td>
         <td>
-          <input defaultValue="Acme Co"
+          <input value={this.props.income.payer}
                  type="text"/>
         </td>
         <td>
-          <MoneyInput/>
+          <MoneyInput amount={this.props.income.amount}/>
         </td>
       </tr>
     )
   }
+}
+
+IncomeRow.propTypes = {
+  income: PropTypes.object.isRequired
 }
