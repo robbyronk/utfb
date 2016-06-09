@@ -5,15 +5,19 @@ export default class MoneyInput extends Component {
     const inputGroupLabelStyle = {
       'padding': '0 0.3rem'
     }
-    // TODO take in value, change callback
     return (
       <div className="input-group">
-                <span className="input-group-label"
-                      style={inputGroupLabelStyle}>$</span>
+        <span className="input-group-label" style={inputGroupLabelStyle}>$</span>
         <input className="input-group-field"
-               defaultValue="550"
+               value={this.props.amount}
+               onChange={this.props.change}
                type="number"/>
       </div>
     )
   }
+}
+
+MoneyInput.propTypes = {
+  amount: PropTypes.number.isRequired,
+  change: PropTypes.function
 }
