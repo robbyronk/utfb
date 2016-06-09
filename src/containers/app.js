@@ -24,7 +24,7 @@ class App extends Component {
     const { children } = this.props
     return (
       <div>
-        <Navigation createCallout={this.props.createCallout} />
+        <Navigation />
         <div className='row'>
           <div className='small-8 columns'>
             {this.props.children}
@@ -50,5 +50,4 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, {
-  createCallout
 })(App)

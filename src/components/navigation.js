@@ -30,5 +30,4 @@ export default class Navigation extends Component {
 }
 
 Navigation.propTypes = {
-  createCallout: PropTypes.func.isRequired
 }
