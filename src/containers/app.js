@@ -26,7 +26,7 @@ class App extends Component {
       <div>
         <Navigation createCallout={this.props.createCallout} />
         <div className='row'>
-          <div className='large-12 columns'>
+          <div className='small-8 columns'>
             {this.props.children}
           </div>
         </div>
