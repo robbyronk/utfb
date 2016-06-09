@@ -47,71 +47,13 @@ flow:
 todo:
 come up with better names for things
 
-sketch out start page
- - how often do you get paid?
-  - weekly, fortnightly, bimonthly, monthly
- - when is your next paycheck coming in?
- - how much do you have in your account right now?
- - button to finish
+datepicker
 
-sketch out budget income page
- - table with two columns, all editable
-  - category name
-  - budget amount
- - button to add categories
- - button to finish and go to check budgets page
- - button to toggle delete mode
-  - adds column of delete switches
-  - turns finish button into delete button
-
-sketch out payday page
- - table with three columns, all editable
-  - date
-  - who paid you
-  - how much
- - button to add income
- - button to finish and go to budget income page
- - button to toggle delete mode
-  - turns finish button into delete button
-  - adds column of delete switches
-
-sketch out check budgets page
- - table with 2 columns, not editable
-  - category name
-  - how much is left in the category
-
-sketch out expense page
- - table with three columns, all editable
-  - date
-  - who you paid
-  - how much
- - button to add expense
- - button to finish and go to check budgets page
- - button to toggle delete mode
-  - turns finish button into delete button
-  - adds column of delete switches
-
-sketch out rebalance page
- - table with 4 columns
-  - category name
-  - amount budgeted (editable)
-  - amount spent
-  - amount left
- - finish button that is disable while any amount left
-   is negative
-
-componentize pages
-
-create list components
- - add button
- - delete mode
- - save (finish) button
-
-create reducers
- - expenses
- - incomes
- - categories
- - budgets
+wire up basics
+ - creating a new thing
+ - changing things
+ - deleting things
+ - going to new pages
 
 wire up interface with state using reselect
 
