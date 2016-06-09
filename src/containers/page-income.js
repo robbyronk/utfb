@@ -1,21 +1,16 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import IncomeRow from '../components/income-row'
-import DeleteRow from '../components/delete-row'
+import IncomeRow from "../components/income-row";
+import {updateIncome} from "../actions";
+import _ from "lodash";
 
 class PageIncome extends Component {
   // todo datepicker
+  // todo total incomes
   // components:
   //  income table component
 
   render() {
-    const deleteSwitchStyle = {
-      'display': 'flex',
-      'flexDirection': 'row',
-      'justifyContent': 'space-around',
-      'alignItems': 'center'
-    }
-
     return (
       <div>
         <h3>Paydays for 1/1/2016 - 8/1/2016</h3>
@@ -30,28 +25,19 @@ class PageIncome extends Component {
           </tr>
           </thead>
           <tbody>
-          <IncomeRow/>
-          <IncomeRow/>
-          <IncomeRow/>
+          {
+            _.values(this.props.incomes)
+              .map((income) =>
+                <IncomeRow change={this.props.updateIncome}
+                           key={income.id}
+                           income={income}
+                />)
+          }
           </tbody>
           <tfoot>
           <tr>
-            <td>Total</td>
-            <td>&nbsp;</td>
-            <td>$500</td>
           </tr>
           </tfoot>
-        </table>
-        <table>
-          <thead>
-          <tr>
-            <td>_label_</td>
-            <td>Delete?</td>
-          </tr>
-          </thead>
-          <tbody>
-          <DeleteRow label="1/1/2016 Acme Co $100"/>
-          </tbody>
         </table>
         <button className="success button expanded">Finish</button>
       </div>
@@ -61,7 +47,11 @@ class PageIncome extends Component {
 }
 
 function mapStateToProps(state) {
-  return {}
+  return {
+    incomes: state.incomes
+  }
 }
 
-export default connect(mapStateToProps, {})(PageIncome)
+export default connect(mapStateToProps, {
+  updateIncome
+})(PageIncome)
