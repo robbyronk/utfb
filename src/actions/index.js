@@ -7,7 +7,7 @@ const defaultIncome = {
 }
 
 export const CREATE_INCOME = 'CREATE_INCOME'
-export function createIncome(date, payer, amount) {
+export function createIncome() {
   const id = _.uniqueId('income')
   return {
     type: CREATE_INCOME,
@@ -37,7 +37,7 @@ export function deleteIncome(id) {
 }
 
 export const CREATE_BUDGET = 'CREATE_BUDGET'
-export function createBudget(date, payer, amount) {
+export function createBudget() {
   const id = _.uniqueId('budget')
   return {
     type: CREATE_BUDGET,
