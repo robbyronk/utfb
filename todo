@@ -61,6 +61,13 @@ tasks:
   add the expense
   if a budget is negative, rebalance
 
+todo next:
+have reselect get a budget for each
+ category
+update budget keyed by category,
+ create a budget if it doesn't exist
+ (upsert)
+
 todo:
 come up with better names for things
 
