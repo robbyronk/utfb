@@ -23,7 +23,7 @@ export default class BudgetIncomeTable extends Component {
         </tbody>
         <tfoot>
         <tr>
-          <td>Overflow</td>
+          <td>Going into Overflow</td>
           <td>$100</td>
         </tr>
         </tfoot>
