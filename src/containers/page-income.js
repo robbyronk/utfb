@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import IncomeRow from "../components/income-row";
-import {updateIncome} from "../actions";
+import {createIncome, updateIncome} from "../actions";
 import _ from "lodash";
 
 class PageIncome extends Component {
@@ -14,7 +14,10 @@ class PageIncome extends Component {
     return (
       <div>
         <h3>Paydays for 1/1/2016 - 8/1/2016</h3>
-        <button className="button expanded">Add an Income</button>
+        <button className="button expanded"
+                onClick={this.props.createIncome}>
+        Add an Income
+        </button>
         <button className="alert hollow button expanded">Delete Incomes</button>
         <table>
           <thead>
@@ -53,5 +56,6 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, {
+  createIncome,
   updateIncome
 })(PageIncome)

@@ -1,13 +1,19 @@
+import _ from "lodash";
+
+const defaultIncome = {
+  date: 'date',
+  payer: 'payer',
+  amount: 100
+}
+
 export const CREATE_INCOME = 'CREATE_INCOME'
 export function createIncome(date, payer, amount) {
   const id = _.uniqueId('income')
   return {
     type: CREATE_INCOME,
     payload: {
-      id,
-      date,
-      payer,
-      amount
+      ...defaultIncome,
+      id
     }
   }
 }
