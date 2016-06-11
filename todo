@@ -66,6 +66,11 @@ come up with better names for things
 
 datepicker
 
+delete mode button
+- changes table to delete mode table
+- hide add and finish button
+- show cancel and delete button
+
 wire up basics
  - creating a new thing
  - changing things
