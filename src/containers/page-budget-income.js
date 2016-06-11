@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
+import {updateBudget} from "../actions";
 import BudgetIncomeTable from "../components/budget-income-table";
 
 class PageBudgetIncome extends Component {
@@ -13,7 +14,8 @@ class PageBudgetIncome extends Component {
         <p>Left over money builds up in "overflow".</p>
         <button className="button expanded">Add Category</button>
         <button className="alert hollow button expanded">Delete Categories</button>
-        <BudgetIncomeTable/>
+        <BudgetIncomeTable budgets={this.props.budgets}
+                           updateBudget={this.props.updateBudget}/>
         <button className="success button expanded">Finish</button>
       </div>
     )
@@ -22,7 +24,11 @@ class PageBudgetIncome extends Component {
 }
 
 function mapStateToProps(state) {
-  return {}
+  return {
+    budgets: state.budgets
+  }
 }
 
-export default connect(mapStateToProps, {})(PageBudgetIncome)
+export default connect(mapStateToProps, {
+  updateBudget
+})(PageBudgetIncome)
