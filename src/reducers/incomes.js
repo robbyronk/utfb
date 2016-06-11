@@ -10,12 +10,12 @@ const initialState = {
   }
 }
 
-function incomes(state = initialState, action) {
-  switch (action.type) {
+function incomes(state = initialState, {type, payload}) {
+  switch (type) {
     case CREATE_INCOME:
-      return Object.assign({}, state, {[action.payload.id]: action.payload})
+      return Object.assign({}, state, {[payload.id]: payload})
     case UPDATE_INCOME:
-      return update(state, {[action.payload.id]: {$set: action.payload}})
+      return update(state, {[payload.id]: {$set: payload}})
   }
   return state
 }
