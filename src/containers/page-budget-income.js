@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import BudgetIncomeRow from "../components/budget-income-row";
-import DeleteRow from "../components/delete-row";
+import BudgetIncomeTable from "../components/budget-income-table";
 
 class PageBudgetIncome extends Component {
 
@@ -14,25 +13,7 @@ class PageBudgetIncome extends Component {
         <p>Left over money builds up in "overflow".</p>
         <button className="button expanded">Add Category</button>
         <button className="alert hollow button expanded">Delete Categories</button>
-        <table>
-          <thead>
-          <tr>
-            <td>Category</td>
-            <td width="50%">Budgeted</td>
-          </tr>
-          </thead>
-          <tbody>
-          <BudgetIncomeRow/>
-          <BudgetIncomeRow/>
-          <DeleteRow label="Mortgage"/>
-          </tbody>
-          <tfoot>
-          <tr>
-            <td>Overflow</td>
-            <td>$100</td>
-          </tr>
-          </tfoot>
-        </table>
+        <BudgetIncomeTable/>
         <button className="success button expanded">Finish</button>
       </div>
     )
