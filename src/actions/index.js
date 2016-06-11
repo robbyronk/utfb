@@ -35,3 +35,32 @@ export function deleteIncome(id) {
     }
   }
 }
+
+export const CREATE_BUDGET = 'CREATE_BUDGET'
+export function createBudget(date, payer, amount) {
+  const id = _.uniqueId('budget')
+  return {
+    type: CREATE_BUDGET,
+    payload: {
+      id
+    }
+  }
+}
+
+export const UPDATE_BUDGET = 'UPDATE_BUDGET'
+export function updateBudget(budget) {
+  return {
+    type: UPDATE_BUDGET,
+    payload: budget
+  }
+}
+
+export const DELETE_BUDGET = 'DELETE_BUDGET'
+export function deleteBudget(id) {
+  return {
+    type: DELETE_BUDGET,
+    payload: {
+      id
+    }
+  }
+}
