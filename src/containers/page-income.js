@@ -1,14 +1,11 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import IncomeRow from "../components/income-row";
 import {createIncome, updateIncome} from "../actions";
-import _ from "lodash";
+import IncomeTable from "../components/income-table";
 
 class PageIncome extends Component {
   // todo datepicker
   // todo total incomes
-  // components:
-  //  income table component
 
   render() {
     return (
@@ -19,29 +16,8 @@ class PageIncome extends Component {
         Add an Income
         </button>
         <button className="alert hollow button expanded">Delete Incomes</button>
-        <table>
-          <thead>
-          <tr>
-            <td>Date</td>
-            <td>Who</td>
-            <td width="30%">Amount</td>
-          </tr>
-          </thead>
-          <tbody>
-          {
-            _.values(this.props.incomes)
-              .map((income) =>
-                <IncomeRow change={this.props.updateIncome}
-                           key={income.id}
-                           income={income}
-                />)
-          }
-          </tbody>
-          <tfoot>
-          <tr>
-          </tr>
-          </tfoot>
-        </table>
+        <IncomeTable incomes={this.props.incomes}
+                     updateIncome={this.props.updateIncome}/>
         <button className="success button expanded">Finish</button>
       </div>
     )
