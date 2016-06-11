@@ -7,6 +7,9 @@ export default class IncomeRow extends Component {
     this.props.change(changedIncome)
   }
 
+  // todo payer change
+  // todo amount change
+
   render() {
     return (
       <tr>
