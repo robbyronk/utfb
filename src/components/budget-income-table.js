@@ -12,8 +12,14 @@ export default class BudgetIncomeTable extends Component {
         </tr>
         </thead>
         <tbody>
-        <BudgetIncomeRow/>
-        <BudgetIncomeRow/>
+        {
+          _.values(this.props.budgets)
+            .map((budget) =>
+              <BudgetIncomeRow change={this.props.updateBudget}
+                         key={budget.id}
+                         budget={budget}
+              />)
+        }
         </tbody>
         <tfoot>
         <tr>
