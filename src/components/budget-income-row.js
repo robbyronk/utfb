@@ -8,7 +8,7 @@ export default class BudgetIncomeRow extends Component {
       this.props.budget,
       {category: event.target.value}
     )
-    this.props.change(changedIncome)
+    this.props.changeCategory(changedIncome)
   }
 
   handleAmountChange(event) {
@@ -41,5 +41,6 @@ export default class BudgetIncomeRow extends Component {
 
 BudgetIncomeRow.propTypes = {
   budget: PropTypes.object.isRequired,
-  change: PropTypes.func
+  change: PropTypes.func,
+  changeCategory: PropTypes.func
 }

@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import {createSelector} from "reselect";
-import {updateBudget, createCategory} from "../actions";
+import {updateBudget, createCategory, updateCategory} from "../actions";
 import BudgetIncomeTable from "../components/budget-income-table";
 import {addCategoryName} from "../selectors";
 
@@ -19,7 +19,8 @@ class PageBudgetIncome extends Component {
         </button>
         <button className="alert hollow button expanded">Delete Categories</button>
         <BudgetIncomeTable budgets={this.props.budgets}
-                           updateBudget={this.props.updateBudget}/>
+                           updateBudget={this.props.updateBudget}
+                           updateCategory={this.props.updateCategory}/>
         <button className="success button expanded">Finish</button>
       </div>
     )
@@ -36,5 +37,6 @@ const budgetIncomeSelector = createSelector(
 
 export default connect(budgetIncomeSelector, {
   updateBudget,
-  createCategory
+  createCategory,
+  updateCategory
 })(PageBudgetIncome)

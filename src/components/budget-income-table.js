@@ -16,8 +16,9 @@ export default class BudgetIncomeTable extends Component {
           _.values(this.props.budgets)
             .map((budget) =>
               <BudgetIncomeRow change={this.props.updateBudget}
-                         key={budget.id}
-                         budget={budget}
+                               changeCategory={this.props.updateCategory}
+                               key={budget.id}
+                               budget={budget}
               />)
         }
         </tbody>
@@ -34,5 +35,6 @@ export default class BudgetIncomeTable extends Component {
 
 BudgetIncomeTable.propTypes = {
   budgets: PropTypes.object.isRequired,
-  updateBudget: PropTypes.func.isRequired
+  updateBudget: PropTypes.func.isRequired,
+  updateCategory: PropTypes.func.isRequired
 }
