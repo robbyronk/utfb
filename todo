@@ -46,7 +46,7 @@ flow:
 
 tasks:
  start using the fine budget:
-  when and how ofter do you get paid
+  when and how often do you get paid
   how much do you have now
   budget what you have
 
@@ -61,12 +61,24 @@ tasks:
   add the expense
   if a budget is negative, rebalance
 
+maths:
+ income = starting amount
+
+ income += incomes
+ budget incomes
+ budgetses += budgets
+ overflow = incomes - sum(budgets)
+
+ available = budgeted - sum(expenses)
+
+ expenses += expense
+
+ sum(incomes) == sum(budgets)
+ sum(incomes) - sum(expenses) == sum(available)
+
 todo next:
-have reselect get a budget for each
- category
-update budget keyed by category,
- create a budget if it doesn't exist
- (upsert)
+update category name when typing in
+ category name box
 
 todo:
 come up with better names for things
