@@ -4,12 +4,12 @@ import { UPDATE_BUDGET } from '../actions'
 const initialState = {
   0: {
     id: 0,
-    category: 'Rent',
+    category: 1,
     amount: 580
   },
   1: {
     id: 1,
-    category: 'Food',
+    category: 2,
     amount: 200
   }
 }

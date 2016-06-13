@@ -1,7 +1,9 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
+import {createSelector} from "reselect";
 import {updateBudget, createCategory} from "../actions";
 import BudgetIncomeTable from "../components/budget-income-table";
+import {addCategoryName} from "../selectors";
 
 class PageBudgetIncome extends Component {
 
@@ -13,7 +15,8 @@ class PageBudgetIncome extends Component {
           to cover expenses until your next paycheck.</p>
         <p>Left over money builds up in "overflow".</p>
         <button className="button expanded"
-        onClick={this.props.createCategory}>Add Category</button>
+                onClick={this.props.createCategory}>Add Category
+        </button>
         <button className="alert hollow button expanded">Delete Categories</button>
         <BudgetIncomeTable budgets={this.props.budgets}
                            updateBudget={this.props.updateBudget}/>
@@ -24,13 +27,14 @@ class PageBudgetIncome extends Component {
 
 }
 
-function mapStateToProps(state) {
-  return {
-    budgets: state.budgets
-  }
-}
+const budgetIncomeSelector = createSelector(
+  addCategoryName,
+  (budgets) => ({
+    budgets
+  })
+)
 
-export default connect(mapStateToProps, {
+export default connect(budgetIncomeSelector, {
   updateBudget,
   createCategory
 })(PageBudgetIncome)

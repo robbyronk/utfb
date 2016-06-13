@@ -26,7 +26,7 @@ export default class BudgetIncomeRow extends Component {
         <td>
           <input onChange={this.handleCategoryChange.bind(this)}
                  type="text"
-                 value={this.props.budget.category}
+                 value={this.props.budget.name}
           />
         </td>
         <td>
