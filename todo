@@ -77,13 +77,20 @@ maths:
  sum(incomes) - sum(expenses) == sum(available)
 
 todo next:
-update category name when typing in
- category name box
+merge budget into category
+
+categorize income so that:
+ sum(incomes) == sum(budgets)
+store incoming budgets in separate
+ state before user "finishes"
 
 todo:
 come up with better names for things
 
 datepicker
+
+react-select for choosing category
+ for expenses
 
 delete mode button
 - changes table to delete mode table
