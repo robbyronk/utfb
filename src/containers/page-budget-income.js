@@ -18,7 +18,7 @@ class PageBudgetIncome extends Component {
                 onClick={this.props.createCategory}>Add Category
         </button>
         <button className="alert hollow button expanded">Delete Categories</button>
-        <BudgetIncomeTable budgets={this.props.budgets}
+        <BudgetIncomeTable budgets={this.props.categories}
                            updateBudget={this.props.updateBudget}
                            updateCategory={this.props.updateCategory}/>
         <button className="success button expanded">Finish</button>
@@ -30,8 +30,8 @@ class PageBudgetIncome extends Component {
 
 const budgetIncomeSelector = createSelector(
   addCategoryName,
-  (budgets) => ({
-    budgets
+  (categories) => ({
+    categories
   })
 )
 
