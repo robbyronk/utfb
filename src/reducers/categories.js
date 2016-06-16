@@ -4,19 +4,23 @@ import { CREATE_CATEGORY, UPDATE_CATEGORY } from '../actions'
 const initialState = {
   0: {
     id: 0,
-    name: 'Uncategorized'
+    name: 'Uncategorized',
+    amount: 20
   },
   1: {
     id: 1,
-    name: 'Rent'
+    name: 'Rent',
+    amount: 580
   },
   2: {
     id: 2,
-    name: 'Food'
+    name: 'Food',
+    amount: 400
   },
   3: {
     id: 3,
-    name: 'Cats'
+    name: 'Cats',
+    amount: 100
   }
 }
 
