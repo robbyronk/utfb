@@ -4,7 +4,6 @@ import { combineReducers } from 'redux'
 import incomes from './incomes'
 import expenses from './expenses'
 import categories from './categories'
-import budgets from './budgets'
 import periods from './periods'
 
 const rootReducer = combineReducers({
@@ -12,7 +11,6 @@ const rootReducer = combineReducers({
   incomes,
   expenses,
   categories,
-  budgets,
   periods
 })
 
