@@ -1,16 +1,14 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import {createSelector} from "reselect";
-import {updateBudget, createCategory, updateCategory} from "../actions";
-import BudgetIncomeTable from "../components/budget-income-table";
-import {addCategoryName} from "../selectors";
+import {createCategory, updateCategory} from "../actions";
+import CategorizeIncomeTable from "../components/categorize-income-table";
 
-class PageBudgetIncome extends Component {
+class PageCategorizeIncome extends Component {
 
   render() {
     return (
       <div>
-        <h3>Budget Income</h3>
+        <h3>Categorize Income</h3>
         <p>Put the amount you need in each category
           to cover expenses until your next paycheck.</p>
         <p>Left over money builds up in "overflow".</p>
@@ -18,8 +16,7 @@ class PageBudgetIncome extends Component {
                 onClick={this.props.createCategory}>Add Category
         </button>
         <button className="alert hollow button expanded">Delete Categories</button>
-        <BudgetIncomeTable budgets={this.props.categories}
-                           updateBudget={this.props.updateBudget}
+        <CategorizeIncomeTable categories={this.props.categories}
                            updateCategory={this.props.updateCategory}/>
         <button className="success button expanded">Finish</button>
       </div>
@@ -28,15 +25,13 @@ class PageBudgetIncome extends Component {
 
 }
 
-const budgetIncomeSelector = createSelector(
-  addCategoryName,
-  (categories) => ({
-    categories
-  })
-)
+const mapStateToProps = function(state) {
+  return {
+    categories: state.categories
+  }
+};
 
-export default connect(budgetIncomeSelector, {
-  updateBudget,
+export default connect(mapStateToProps, {
   createCategory,
   updateCategory
-})(PageBudgetIncome)
+})(PageCategorizeIncome)

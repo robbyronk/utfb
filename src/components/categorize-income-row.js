@@ -1,11 +1,11 @@
 import React, {Component, PropTypes} from "react";
 import MoneyInput from "../components/money-input";
 
-export default class BudgetIncomeRow extends Component {
+export default class CategorizeIncomeRow extends Component {
   handleCategoryChange(event) {
     const changedIncome = Object.assign(
       {},
-      this.props.budget,
+      this.props.category,
       {category: event.target.value}
     )
     this.props.changeCategory(changedIncome)
@@ -14,7 +14,7 @@ export default class BudgetIncomeRow extends Component {
   handleAmountChange(event) {
     const changedIncome = Object.assign(
       {},
-      this.props.budget,
+      this.props.category,
       {amount: event.target.value}
     )
     this.props.change(changedIncome)
@@ -26,11 +26,11 @@ export default class BudgetIncomeRow extends Component {
         <td>
           <input onChange={this.handleCategoryChange.bind(this)}
                  type="text"
-                 value={this.props.budget.name}
+                 value={this.props.category.name}
           />
         </td>
         <td>
-          <MoneyInput amount={this.props.budget.amount}
+          <MoneyInput amount={this.props.category.amount}
                       change={this.handleAmountChange.bind(this)}
           />
         </td>
@@ -39,8 +39,8 @@ export default class BudgetIncomeRow extends Component {
   }
 }
 
-BudgetIncomeRow.propTypes = {
-  budget: PropTypes.object.isRequired,
+CategorizeIncomeRow.propTypes = {
+  category: PropTypes.object.isRequired,
   change: PropTypes.func,
   changeCategory: PropTypes.func
 }
