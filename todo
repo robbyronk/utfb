@@ -65,11 +65,11 @@ maths:
  income = starting amount
 
  income += incomes
- budget incomes
- budgetses += budgets
- overflow = incomes - sum(budgets)
+ categorize incomes
+ categories += categorized income
+ overflow = incomes - sum(categories)
 
- available = budgeted - sum(expenses)
+ available = categorized - sum(expenses)
 
  expenses += expense
 
@@ -77,10 +77,8 @@ maths:
  sum(incomes) - sum(expenses) == sum(available)
 
 todo next:
-merge budget into category
-
 categorize income so that:
- sum(incomes) == sum(budgets)
+ sum(incomes) == sum(categories)
 store incoming budgets in separate
  state before user "finishes"
 
