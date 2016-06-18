@@ -1,8 +1,30 @@
 import {createSelector} from "reselect";
 import _ from "lodash";
 
-const budgetsSelector = (state) => state.budgets
 const categoriesSelector = (state) => state.categories
+const incomeSelector = (state) => state.income
+const expensesSelector = (state) => state.expenses
+
+export const totalIncome = createSelector(
+  [incomeSelector],
+  (incomes) => (
+    _.sumBy(incomes, 'amount')
+  )
+)
+
+export const totalCategories = createSelector(
+  [categoriesSelector],
+  (categories) => (
+    _.sumBy(categories, 'amount')
+  )
+)
+
+export const amountToCategorize = createSelector(
+  [totalIncome, totalCategories],
+  (totalIncome, totalCategories) => (
+    totalIncome - totalCategories
+  )
+)
 
 export const addCategoryName = createSelector(
   [budgetsSelector, categoriesSelector],
@@ -22,3 +44,4 @@ const createMissingBudgets = createSelector(
     // todo
   }
 )
+
