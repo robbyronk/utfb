@@ -5,7 +5,22 @@ import _ from "lodash";
 
 export const categoriesSelector = (state) => _.values(state.categories)
 export const incomeSelector = (state) => _.values(state.incomes)
-const expensesSelector = (state) => state.expenses
+const expenses = (state) => _.values(state.expenses)
+
+export function expensesForCategory(state, props) {
+  return _.filter(expenses(state), {category: props.category.id})
+}
+
+export function amountForCategory(state, props) {
+  return _.find(categoriesSelector(state), {id: props.category.id}).amount
+}
+
+export const available = createSelector(
+  [amountForCategory, expensesForCategory],
+  function (amount, expenses) {
+    return amount - _.sumBy(expenses, 'amount')
+  }
+)
 
 export const categoriesForSelect = createSelector(
   [categoriesSelector],
