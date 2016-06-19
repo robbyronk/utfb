@@ -3,12 +3,16 @@ import MoneyInput from "../components/money-input";
 
 export default class IncomeRow extends Component {
   handleDateChange(event) {
-    const changedIncome = Object.assign({}, this.props.income, {date: event.target.value})
-    this.props.change(changedIncome)
+    this.props.change(Object.assign({}, this.props.income, {date: event.target.value}))
   }
 
-  // todo payer change
-  // todo amount change
+  handlePayerChange(event) {
+    this.props.change(Object.assign({}, this.props.income, {payer: event.target.value}))
+  }
+
+  handleAmountChange(event) {
+    this.props.change(Object.assign({}, this.props.income, {amount: event.target.value}))
+  }
 
   render() {
     return (
@@ -20,10 +24,12 @@ export default class IncomeRow extends Component {
         </td>
         <td>
           <input value={this.props.income.payer}
+                 onChange={this.handlePayerChange.bind(this)}
                  type="text"/>
         </td>
         <td>
-          <MoneyInput amount={this.props.income.amount}/>
+          <MoneyInput amount={this.props.income.amount}
+                      change={this.handleAmountChange.bind(this)}/>
         </td>
       </tr>
     )
