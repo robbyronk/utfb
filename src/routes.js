@@ -2,7 +2,7 @@ import React from 'react'
 import { Route, IndexRoute, Redirect } from 'react-router'
 
 import App from './containers/app'
-import Available from './containers/page-budget'
+import Available from './containers/page-available'
 import CategorizeIncome from './containers/page-categorize-income'
 import Expenses from './containers/page-expenses'
 import Income from './containers/page-income'
