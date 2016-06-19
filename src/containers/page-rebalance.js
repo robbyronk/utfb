@@ -35,6 +35,7 @@ class PageRebalance extends Component {
 
 }
 
+// todo selector that adds spent and available to category
 function mapStateToProps(state) {
   return {}
 }
