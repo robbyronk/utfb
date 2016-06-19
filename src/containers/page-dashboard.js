@@ -10,7 +10,7 @@ class PageDashboard extends Component {
         <li><Link to='/start' title="Start">Start</Link></li>
         <li><Link to='/income'>Payday</Link></li>
         <li><Link to='/categorize-income'>Categorize Income</Link></li>
-        <li><Link to='/budget'>Budget</Link></li>
+        <li><Link to='/available'>Available</Link></li>
         <li><Link to='/expenses'>Expense</Link></li>
         <li><Link to='/rebalance'>Rebalance</Link></li>
       </ul>

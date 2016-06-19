@@ -4,6 +4,9 @@ import {updateExpense} from "../actions";
 import ExpenseTable from "../components/expense-table";
 
 class PageExpenses extends Component {
+  // todo if an expense makes a category go over, the finish button should be a next button
+  // todo next button should go to rebalance screen
+  // todo finish button should go to available screen
 
   render() {
     return (

@@ -2,9 +2,11 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import {createCategory, updateCategory} from "../actions";
 import CategorizeIncomeTable from "../components/categorize-income-table";
-import {amountToCategorize, totalIncome, totalCategories, incomes, categories} from "../selectors"
+import {amountToCategorize, totalIncome, totalCategories, incomes, categories} from "../selectors";
 
 class PageCategorizeIncome extends Component {
+  // todo disable finish button unless the amount left to categorize is zero
+  // todo finish button should go to available screen
 
   render() {
     return (

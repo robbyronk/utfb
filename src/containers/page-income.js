@@ -5,7 +5,7 @@ import IncomeTable from "../components/income-table";
 
 class PageIncome extends Component {
   // todo datepicker
-  // todo total incomes
+  // todo next button goes to categorize income
 
   render() {
     return (
@@ -18,7 +18,7 @@ class PageIncome extends Component {
         <button className="alert hollow button expanded">Delete Incomes</button>
         <IncomeTable incomes={this.props.incomes}
                      updateIncome={this.props.updateIncome}/>
-        <button className="success button expanded">Finish</button>
+        <button className="success button expanded">Next</button>
       </div>
     )
   }
