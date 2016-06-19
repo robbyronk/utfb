@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import RebalanceRow from '../components/rebalance-row'
+import RebalanceRow from "../components/rebalance-row";
+import {rebalanceCategories} from "../selectors";
+import {updateCategory} from "../actions";
 
 class PageRebalance extends Component {
 
@@ -17,9 +19,13 @@ class PageRebalance extends Component {
           </tr>
           </thead>
           <tbody>
-          <RebalanceRow/>
-          <RebalanceRow/>
-          <RebalanceRow/>
+          {
+            this.props.categories.map((category) =>
+              <RebalanceRow change={this.props.updateCategory}
+                            key={category.id}
+                            category={category}/>
+            )
+          }
           </tbody>
           <tfoot>
           <tr>
@@ -37,7 +43,11 @@ class PageRebalance extends Component {
 
 // todo selector that adds spent and available to category
 function mapStateToProps(state) {
-  return {}
+  return {
+    categories: rebalanceCategories(state)
+  }
 }
 
-export default connect(mapStateToProps, {})(PageRebalance)
+export default connect(mapStateToProps, {
+  updateCategory
+})(PageRebalance)
