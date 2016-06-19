@@ -3,8 +3,8 @@ import _ from "lodash";
 
 // todo organize these
 
-export const categoriesSelector = (state) => _.values(state.categories)
-export const incomeSelector = (state) => _.values(state.incomes)
+export const categories = (state) => _.values(state.categories)
+export const incomes = (state) => _.values(state.incomes)
 const expenses = (state) => _.values(state.expenses)
 
 export function expensesForCategory(state, props) {
@@ -12,30 +12,25 @@ export function expensesForCategory(state, props) {
 }
 
 export function amountForCategory(state, props) {
-  return _.find(categoriesSelector(state), {id: props.category.id}).amount
+  return _.find(categories(state), {id: props.category.id}).amount
 }
 
 export const available = createSelector(
   [amountForCategory, expensesForCategory],
-  function (amount, expenses) {
-    return amount - _.sumBy(expenses, 'amount')
+  function (categoryAmount, expenses) {
+    return categoryAmount - _.sumBy(expenses, 'amount')
   }
 )
 
-export const categoriesForSelect = createSelector(
-  [categoriesSelector],
-  (categories) => _.values(categories)
-)
-
 export const totalIncome = createSelector(
-  [incomeSelector],
+  [incomes],
   (incomes) => (
     _.sumBy(incomes, 'amount')
   )
 )
 
 export const totalCategories = createSelector(
-  [categoriesSelector],
+  [categories],
   (categories) => (
     _.sumBy(categories, 'amount')
   )
@@ -47,22 +42,3 @@ export const amountToCategorize = createSelector(
     _.round(totalIncome - totalCategories, 2)
   )
 )
-
-// export const addCategoryName = createSelector(
-//   [budgetsSelector, categoriesSelector],
-//   (budgets, categories) => (
-//     _.mapValues(
-//       budgets, (budget) => _.set(budget, 'name', categories[budget.category].name)
-//     )
-//   )
-// )
-
-// for each category, make sure there is a budget
-//   reduce over categories and return object of budgets
-// const createMissingBudgets = createSelector(
-//   [budgetsSelector, categoriesSelector],
-//   (budgets, categories) => {
-//     var newBudgets = Object.assign({}, budgets)
-// }
-// )
-
