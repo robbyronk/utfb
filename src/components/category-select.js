@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from "react";
 import Select from "react-select";
 import {connect} from "react-redux";
-import { categoriesForSelect } from '../selectors'
+import { categories } from '../selectors'
 
 import 'react-select/dist/react-select.css'
 
@@ -24,7 +24,7 @@ CategorySelect.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    categories: categoriesForSelect(state)
+    categories: categories(state)
   }
 }
 
