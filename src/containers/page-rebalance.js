@@ -1,11 +1,10 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import RebalanceRow from "../components/rebalance-row";
-import {rebalanceCategories} from "../selectors";
+import {rebalanceCategories,amountToCategorize} from "../selectors";
 import {updateCategory} from "../actions";
 
 class PageRebalance extends Component {
-
   render() {
     return (
       <div>
@@ -30,7 +29,7 @@ class PageRebalance extends Component {
           <tfoot>
           <tr>
             <td>Overflow</td>
-            <td>$100</td>
+            <td>${this.props.amountToCategorize}</td>
           </tr>
           </tfoot>
         </table>
@@ -41,10 +40,10 @@ class PageRebalance extends Component {
 
 }
 
-// todo selector that adds spent and available to category
 function mapStateToProps(state) {
   return {
-    categories: rebalanceCategories(state)
+    categories: rebalanceCategories(state),
+    amountToCategorize: amountToCategorize(state),
   }
 }
 
