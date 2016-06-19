@@ -8,7 +8,7 @@ class PageExpenses extends Component {
   render() {
     return (
       <div>
-        <h3>Expenses for 1/1/2016 - 8/1/2016</h3>
+        <h3>Expenses</h3>
         <button className="button expanded">Add an Expense</button>
         <button className="alert hollow button expanded">Delete Expenses</button>
         <ExpenseTable expenses={this.props.expenses}
