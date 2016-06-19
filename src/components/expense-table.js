@@ -8,8 +8,8 @@ export default class ExpenseTable extends Component {
         <thead>
         <tr>
           <td width="20%">Date</td>
-          <td>Who</td>
-          <td>Category</td>
+          <td width="30%">Who</td>
+          <td width="30%">Category</td>
           <td width="20%">Amount</td>
         </tr>
         </thead>
