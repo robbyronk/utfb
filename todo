@@ -77,10 +77,7 @@ maths:
  sum(incomes) - sum(expenses) == sum(available)
 
 todo next:
-categorize income so that:
- sum(incomes) == sum(categories)
-store incoming budgets in separate
- state before user "finishes"
+add category column to expenses page
 
 todo:
 come up with better names for things
