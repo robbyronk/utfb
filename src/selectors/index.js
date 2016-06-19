@@ -7,12 +7,31 @@ export const categories = (state) => _.values(state.categories)
 export const incomes = (state) => _.values(state.incomes)
 const expenses = (state) => _.values(state.expenses)
 
+function _expensesForCategory(state, category) {
+  return _.filter(expenses(state), {category})
+}
+
 export function expensesForCategory(state, props) {
-  return _.filter(expenses(state), {category: props.category.id})
+  return _expensesForCategory(state, props.category.id)
+}
+
+function _amountForCategory(state, id) {
+  return _.find(categories(state), {id}).amount
 }
 
 export function amountForCategory(state, props) {
-  return _.find(categories(state), {id: props.category.id}).amount
+  return _amountForCategory(state, props.category.id)
+}
+
+export function rebalanceCategories(state) {
+  return _.map(categories(state), (category) => Object.assign(
+    {},
+    category,
+    {
+      spent: _.sumBy(_expensesForCategory(state, category.id), 'amount'),
+      amount: _amountForCategory(state, category.id)
+    }
+  ))
 }
 
 export const available = createSelector(
