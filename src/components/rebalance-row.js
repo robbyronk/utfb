@@ -6,18 +6,23 @@ export default class RebalanceRow extends Component {
     return (
       <tr>
         <td>
-          Rent
+          {this.props.category.name}
         </td>
         <td>
-          <MoneyInput/>
+          <MoneyInput amount={this.props.category.amount}/>
         </td>
         <td>
-          $500
+          ${this.props.category.spent}
         </td>
         <td>
-          $0
+          ${this.props.category.available}
         </td>
       </tr>
     )
   }
+}
+
+RebalanceRow.propTypes = {
+  category: PropTypes.object.isRequired,
+  change: PropTypes.func.isRequired
 }
