@@ -77,17 +77,13 @@ maths:
  sum(incomes) - sum(expenses) == sum(available)
 
 todo next:
-rebalance page
- each row will be a category from a
- selector that adds spent and available
+datepicker
 
 todo:
 come up with better names for things
 
 make finish buttons actually go to another
  page
-
-datepicker
 
 delete mode button
 - changes to new page
