@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import {createCategory, updateCategory} from "../actions";
 import CategorizeIncomeTable from "../components/categorize-income-table";
+import {amountToCategorize, totalIncome, totalCategories, incomeSelector, categoriesSelector} from "../selectors"
 
 class PageCategorizeIncome extends Component {
 
@@ -16,6 +17,7 @@ class PageCategorizeIncome extends Component {
                 onClick={this.props.createCategory}>Add Category
         </button>
         <button className="alert hollow button expanded">Delete Categories</button>
+        <p>Amount left to categorize: {this.props.amountToCategorize}</p>
         <CategorizeIncomeTable categories={this.props.categories}
                            updateCategory={this.props.updateCategory}/>
         <button className="success button expanded">Finish</button>
@@ -27,7 +29,12 @@ class PageCategorizeIncome extends Component {
 
 const mapStateToProps = function(state) {
   return {
-    categories: state.categories
+    categories: state.categories,
+    amountToCategorize: amountToCategorize(state),
+    totalIncomes: totalIncome(state),
+    totalCategories: totalCategories(state),
+    incomes: incomeSelector(state),
+    categories: categoriesSelector(state)
   }
 };
 

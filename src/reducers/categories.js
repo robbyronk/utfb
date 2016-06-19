@@ -24,12 +24,16 @@ const initialState = {
   }
 }
 
+function castAmountToInt(category) {
+  return update(category, {amount: {$apply: (amount) => parseInt(amount) || 0}})
+}
+
 function categories(state = initialState, {type, payload}) {
   switch (type) {
     case CREATE_CATEGORY:
       return Object.assign({}, state, {[payload.id]: payload})
     case UPDATE_CATEGORY:
-      return update(state, {[payload.id]: {$set: payload}})
+      return update(state, {[payload.id]: {$set: castAmountToInt(payload)}})
   }
   return state
 }
