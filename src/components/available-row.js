@@ -1,7 +1,6 @@
 import React, {Component, PropTypes} from "react";
-import MoneyInput from "../components/money-input";
 
-export default class BudgetRow extends Component {
+export default class AvailableRow extends Component {
   render() {
     return (
       <tr>
