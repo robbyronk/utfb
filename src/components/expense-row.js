@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from "react";
 import MoneyInput from "../components/money-input";
+import CategorySelect from '../components/category-select'
 
 export default class ExpenseRow extends Component {
   handleDateChange(event) {
@@ -17,6 +18,11 @@ export default class ExpenseRow extends Component {
     this.props.change(changedExpense)
   }
 
+  handleCategoryChange(chosenCategory) {
+    const changedExpense = Object.assign({}, this.props.expense, {category: chosenCategory.id})
+    this.props.change(changedExpense)
+  }
+
   render() {
     return (
       <tr>
@@ -31,7 +37,8 @@ export default class ExpenseRow extends Component {
                  type="text"/>
         </td>
         <td>
-          Category ID: {this.props.expense.category}
+          <CategorySelect selected={this.props.expense.category}
+                          change={this.handleCategoryChange.bind(this)}/>
         </td>
         <td>
           <MoneyInput amount={this.props.expense.amount}
