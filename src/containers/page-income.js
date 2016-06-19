@@ -10,7 +10,7 @@ class PageIncome extends Component {
   render() {
     return (
       <div>
-        <h3>Paydays for 1/1/2016 - 8/1/2016</h3>
+        <h3>Paydays</h3>
         <button className="button expanded"
                 onClick={this.props.createIncome}>
         Add an Income
