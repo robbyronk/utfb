@@ -2,7 +2,7 @@ import React from 'react'
 import { Route, IndexRoute, Redirect } from 'react-router'
 
 import App from './containers/app'
-import Budget from './containers/page-budget'
+import Available from './containers/page-budget'
 import CategorizeIncome from './containers/page-categorize-income'
 import Expenses from './containers/page-expenses'
 import Income from './containers/page-income'
@@ -16,7 +16,7 @@ export default (
     <IndexRoute component={Dashboard}/>
     <Route path="/income" component={Income} />
     <Route path="/expenses" component={Expenses} />
-    <Route path="/budget" component={Budget} />
+    <Route path="/available" component={Available} />
     <Route path="/categorize-income" component={CategorizeIncome} />
     <Route path="/rebalance" component={Rebalance} />
     <Route path="/start" component={Start} />

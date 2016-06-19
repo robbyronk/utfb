@@ -19,7 +19,7 @@ export default class Navigation extends Component {
               </li>
               <li><Link to='/income'>Payday</Link></li>
               <li><Link to='/expenses'>Expense</Link></li>
-              <li><Link to='/budget'>Budget</Link></li>
+              <li><Link to='/available'>Available</Link></li>
             </ul>
           </div>
         </div>
