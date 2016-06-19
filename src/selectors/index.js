@@ -7,6 +7,10 @@ export const categories = (state) => _.values(state.categories)
 export const incomes = (state) => _.values(state.incomes)
 const expenses = (state) => _.values(state.expenses)
 
+function sumByAmount(collection) {
+  return _.sumBy(collection, 'amount')
+}
+
 function _expensesForCategory(state, category) {
   return _.filter(expenses(state), {category})
 }
@@ -24,7 +28,7 @@ export function amountForCategory(state, props) {
 }
 
 const _available = function (categoryAmount, expenses) {
-  return categoryAmount - _.sumBy(expenses, 'amount')
+  return categoryAmount - sumByAmount(expenses)
 }
 
 export function rebalanceCategories(state) {
@@ -32,7 +36,7 @@ export function rebalanceCategories(state) {
     {},
     category,
     {
-      spent: _.sumBy(_expensesForCategory(state, category.id), 'amount'),
+      spent: sumByAmount(_expensesForCategory(state, category.id)),
       available: _available(_amountForCategory(state, category.id), _expensesForCategory(state, category.id))
     }
   ))
@@ -46,14 +50,14 @@ export const available = createSelector(
 export const totalIncome = createSelector(
   [incomes],
   (incomes) => (
-    _.sumBy(incomes, 'amount')
+    sumByAmount(incomes)
   )
 )
 
 export const totalCategories = createSelector(
   [categories],
   (categories) => (
-    _.sumBy(categories, 'amount')
+    sumByAmount(categories)
   )
 )
 
