@@ -77,17 +77,20 @@ maths:
  sum(incomes) - sum(expenses) == sum(available)
 
 todo next:
-add category column to expenses page
+rebalance page
+ each row will be a category from a
+ selector that adds spent and available
 
 todo:
 come up with better names for things
 
+make finish buttons actually go to another
+ page
+
 datepicker
 
-react-select for choosing category
- for expenses
-
 delete mode button
+- changes to new page
 - changes table to delete mode table
 - hide add and finish button
 - show cancel and delete button
@@ -98,8 +101,6 @@ wire up basics
  - deleting things
  - going to new pages
 
-wire up interface with state using reselect
-
 wire up state with backend using sagas
 
 write backend
@@ -108,4 +109,3 @@ write backend
   - categories
   - incomes
   - expenses
-  - budgets
