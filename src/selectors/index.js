@@ -23,22 +23,24 @@ export function amountForCategory(state, props) {
   return _amountForCategory(state, props.category.id)
 }
 
+const _available = function (categoryAmount, expenses) {
+  return categoryAmount - _.sumBy(expenses, 'amount')
+}
+
 export function rebalanceCategories(state) {
   return _.map(categories(state), (category) => Object.assign(
     {},
     category,
     {
       spent: _.sumBy(_expensesForCategory(state, category.id), 'amount'),
-      amount: _amountForCategory(state, category.id)
+      available: _available(_amountForCategory(state, category.id), _expensesForCategory(state, category.id))
     }
   ))
 }
 
 export const available = createSelector(
   [amountForCategory, expensesForCategory],
-  function (categoryAmount, expenses) {
-    return categoryAmount - _.sumBy(expenses, 'amount')
-  }
+  _available
 )
 
 export const totalIncome = createSelector(
