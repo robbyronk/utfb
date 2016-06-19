@@ -1,9 +1,16 @@
 import {createSelector} from "reselect";
 import _ from "lodash";
 
+// todo organize these
+
 export const categoriesSelector = (state) => _.values(state.categories)
 export const incomeSelector = (state) => _.values(state.incomes)
 const expensesSelector = (state) => state.expenses
+
+export const categoriesForSelect = createSelector(
+  [categoriesSelector],
+  (categories) => _.values(categories)
+)
 
 export const totalIncome = createSelector(
   [incomeSelector],
