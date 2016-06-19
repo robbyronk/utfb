@@ -2,6 +2,10 @@ import React, {Component, PropTypes} from "react";
 import MoneyInput from "../components/money-input";
 
 export default class RebalanceRow extends Component {
+  handleAmountChange(event) {
+    this.props.change(Object.assign({}, this.props.category, {amount: event.target.value}))
+  }
+
   render() {
     return (
       <tr>
@@ -9,7 +13,8 @@ export default class RebalanceRow extends Component {
           {this.props.category.name}
         </td>
         <td>
-          <MoneyInput amount={this.props.category.amount}/>
+          <MoneyInput amount={this.props.category.amount}
+                      change={this.handleAmountChange.bind(this)}/>
         </td>
         <td>
           ${this.props.category.spent}
