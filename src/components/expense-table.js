@@ -7,9 +7,10 @@ export default class ExpenseTable extends Component {
       <table>
         <thead>
         <tr>
-          <td>Date</td>
+          <td width="20%">Date</td>
           <td>Who</td>
-          <td width="30%">Amount</td>
+          <td>Category</td>
+          <td width="20%">Amount</td>
         </tr>
         </thead>
         <tbody>
@@ -17,8 +18,8 @@ export default class ExpenseTable extends Component {
           _.values(this.props.expenses)
             .map((expense) =>
               <ExpenseRow change={this.props.updateExpense}
-                         key={expense.id}
-                         expense={expense}
+                          key={expense.id}
+                          expense={expense}
               />)
         }
         </tbody>

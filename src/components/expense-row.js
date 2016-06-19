@@ -31,6 +31,9 @@ export default class ExpenseRow extends Component {
                  type="text"/>
         </td>
         <td>
+          Category ID: {this.props.expense.category}
+        </td>
+        <td>
           <MoneyInput amount={this.props.expense.amount}
                       change={this.handleAmountChange.bind(this)}/>
         </td>
