@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import {createCategory, updateCategory} from "../actions";
 import CategorizeIncomeTable from "../components/categorize-income-table";
-import {amountToCategorize, totalIncome, totalCategories, incomeSelector, categoriesSelector} from "../selectors"
+import {amountToCategorize, totalIncome, totalCategories, incomes, categories} from "../selectors"
 
 class PageCategorizeIncome extends Component {
 
@@ -29,12 +29,11 @@ class PageCategorizeIncome extends Component {
 
 const mapStateToProps = function(state) {
   return {
-    categories: state.categories,
     amountToCategorize: amountToCategorize(state),
     totalIncomes: totalIncome(state),
     totalCategories: totalCategories(state),
-    incomes: incomeSelector(state),
-    categories: categoriesSelector(state)
+    incomes: incomes(state),
+    categories: categories(state)
   }
 };
 
