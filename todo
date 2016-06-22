@@ -77,14 +77,13 @@ maths:
  sum(incomes) - sum(expenses) == sum(available)
 
 todo next:
-datepicker
+do calculations for buttons in selector
 
 todo:
 come up with better names for things
 
 make finish buttons actually go to another
  page
-do calculations for buttons in selector
 
 delete mode button
 - changes to new page
