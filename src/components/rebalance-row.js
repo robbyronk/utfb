@@ -3,7 +3,7 @@ import MoneyInput from "../components/money-input";
 
 export default class RebalanceRow extends Component {
   handleAmountChange(event) {
-    this.props.change(Object.assign({}, this.props.category, {amount: event.target.value}))
+    this.props.change({...this.props.category, amount: event.target.value})
   }
 
   render() {

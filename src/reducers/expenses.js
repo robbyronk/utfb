@@ -1,5 +1,5 @@
-import update from 'react-addons-update'
-import { CREATE_EXPENSE, UPDATE_EXPENSE } from '../actions'
+import update from "react-addons-update";
+import {CREATE_EXPENSE, UPDATE_EXPENSE} from "../actions";
 
 const initialState = {
   0: {
@@ -14,7 +14,7 @@ const initialState = {
 function expenses(state = initialState, {type, payload}) {
   switch (type) {
     case CREATE_EXPENSE:
-      return Object.assign({}, state, {[payload.id]: payload})
+      return {...state, [payload.id]: payload}
     case UPDATE_EXPENSE:
       return update(state, {[payload.id]: {$set: payload}})
   }

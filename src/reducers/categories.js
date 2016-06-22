@@ -1,5 +1,5 @@
-import update from 'react-addons-update'
-import { CREATE_CATEGORY, UPDATE_CATEGORY } from '../actions'
+import update from "react-addons-update";
+import {CREATE_CATEGORY, UPDATE_CATEGORY} from "../actions";
 
 const initialState = {
   0: {
@@ -31,7 +31,7 @@ function castAmountToInt(category) {
 function categories(state = initialState, {type, payload}) {
   switch (type) {
     case CREATE_CATEGORY:
-      return Object.assign({}, state, {[payload.id]: payload})
+      return {...state, [payload.id]: payload}
     case UPDATE_CATEGORY:
       return update(state, {[payload.id]: {$set: castAmountToInt(payload)}})
   }

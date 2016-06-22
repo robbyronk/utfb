@@ -10,11 +10,11 @@ export default class IncomeRow extends Component {
   }
 
   handlePayerChange(event) {
-    this.props.change(Object.assign({}, this.props.income, {payer: event.target.value}))
+    this.props.change({...this.props.income, payer: event.target.value})
   }
 
   handleAmountChange(event) {
-    this.props.change(Object.assign({}, this.props.income, {amount: event.target.value}))
+    this.props.change({...this.props.income, amount: event.target.value})
   }
 
   render() {

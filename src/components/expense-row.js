@@ -11,18 +11,15 @@ export default class ExpenseRow extends Component {
   }
 
   handlePayeeChange(event) {
-    const changedExpense = Object.assign({}, this.props.expense, {payee: event.target.value})
-    this.props.change(changedExpense)
+    this.props.change({...this.props.expense, payee: event.target.value})
   }
 
   handleAmountChange(event) {
-    const changedExpense = Object.assign({}, this.props.expense, {amount: event.target.value})
-    this.props.change(changedExpense)
+    this.props.change({...this.props.expense, amount: event.target.value})
   }
 
   handleCategoryChange(chosenCategory) {
-    const changedExpense = Object.assign({}, this.props.expense, {category: chosenCategory.id})
-    this.props.change(changedExpense)
+    this.props.change({...this.props.expense, category: chosenCategory.id})
   }
 
   render() {

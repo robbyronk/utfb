@@ -32,14 +32,11 @@ const _available = function (categoryAmount, expenses) {
 }
 
 export function rebalanceCategories(state) {
-  return _.map(categories(state), (category) => Object.assign(
-    {},
-    category,
-    {
-      spent: sumByAmount(_expensesForCategory(state, category.id)),
-      available: _available(_amountForCategory(state, category.id), _expensesForCategory(state, category.id))
-    }
-  ))
+  return _.map(categories(state), (category) => ({
+    ...category,
+    spent: sumByAmount(_expensesForCategory(state, category.id)),
+    available: _available(_amountForCategory(state, category.id), _expensesForCategory(state, category.id))
+  }))
 }
 
 export const available = createSelector(

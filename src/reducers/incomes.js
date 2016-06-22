@@ -1,5 +1,5 @@
-import update from 'react-addons-update'
-import { CREATE_INCOME, UPDATE_INCOME } from '../actions'
+import update from "react-addons-update";
+import {CREATE_INCOME, UPDATE_INCOME} from "../actions";
 
 const initialState = {
   0: {
@@ -13,7 +13,7 @@ const initialState = {
 function incomes(state = initialState, {type, payload}) {
   switch (type) {
     case CREATE_INCOME:
-      return Object.assign({}, state, {[payload.id]: payload})
+      return {...state, [payload.id]: payload}
     case UPDATE_INCOME:
       return update(state, {[payload.id]: {$set: payload}})
   }
