@@ -1,9 +1,12 @@
 import React, {Component, PropTypes} from "react";
+import DatePicker from "react-datepicker";
 import MoneyInput from "../components/money-input";
+import moment from "moment";
+import "react-datepicker/dist/react-datepicker.css";
 
 export default class IncomeRow extends Component {
-  handleDateChange(event) {
-    this.props.change(Object.assign({}, this.props.income, {date: event.target.value}))
+  handleDateChange(date) {
+    this.props.change({...this.props.income, date: date.format('YYYY-MM-DD')})
   }
 
   handlePayerChange(event) {
@@ -18,9 +21,9 @@ export default class IncomeRow extends Component {
     return (
       <tr>
         <td>
-          <input value={this.props.income.date}
-                 onChange={this.handleDateChange.bind(this)}
-                 type="text"/>
+          <DatePicker selected={moment(this.props.income.date)}
+                      onChange={this.handleDateChange.bind(this)}
+                      dateFormat="ll"/>
         </td>
         <td>
           <input value={this.props.income.payer}

@@ -1,11 +1,13 @@
 import React, {Component, PropTypes} from "react";
+import DatePicker from "react-datepicker";
 import MoneyInput from "../components/money-input";
-import CategorySelect from '../components/category-select'
+import moment from "moment";
+import "react-datepicker/dist/react-datepicker.css";
+import CategorySelect from "../components/category-select";
 
 export default class ExpenseRow extends Component {
-  handleDateChange(event) {
-    const changedExpense = Object.assign({}, this.props.expense, {date: event.target.value})
-    this.props.change(changedExpense)
+  handleDateChange(date) {
+    this.props.change({...this.props.expense, date: date.format('YYYY-MM-DD')})
   }
 
   handlePayeeChange(event) {
@@ -27,9 +29,9 @@ export default class ExpenseRow extends Component {
     return (
       <tr>
         <td>
-          <input value={this.props.expense.date}
-                 onChange={this.handleDateChange.bind(this)}
-                 type="text"/>
+          <DatePicker selected={moment(this.props.expense.date)}
+                      onChange={this.handleDateChange.bind(this)}
+                      dateFormat="ll"/>
         </td>
         <td>
           <input value={this.props.expense.payee}
