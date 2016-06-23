@@ -2,11 +2,13 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import {createCategory, updateCategory} from "../actions";
 import CategorizeIncomeTable from "../components/categorize-income-table";
-import {amountToCategorize, totalIncome, totalCategories, incomes, categories} from "../selectors";
+import {browserHistory} from "react-router";
+import {amountToCategorize, categories, incomes, isBalanced, totalCategories, totalIncome} from "../selectors";
 
 class PageCategorizeIncome extends Component {
-  // todo disable finish button unless the amount left to categorize is zero
-  // todo finish button should go to available screen
+  gotoAvailable() {
+    browserHistory.push('/available')
+  }
 
   render() {
     return (
@@ -22,7 +24,11 @@ class PageCategorizeIncome extends Component {
         <p>Amount left to categorize: {this.props.amountToCategorize}</p>
         <CategorizeIncomeTable categories={this.props.categories}
                            updateCategory={this.props.updateCategory}/>
-        <button className="success button expanded">Finish</button>
+        { this.props.isBalanced
+          ? <button className="success button expanded" onClick={this.gotoAvailable}>Finish</button>
+          : <button className="disabled success button expanded" disabled="true">Finish</button>
+        }
+
       </div>
     )
   }
@@ -32,10 +38,11 @@ class PageCategorizeIncome extends Component {
 const mapStateToProps = function(state) {
   return {
     amountToCategorize: amountToCategorize(state),
-    totalIncomes: totalIncome(state),
-    totalCategories: totalCategories(state),
+    categories: categories(state),
     incomes: incomes(state),
-    categories: categories(state)
+    isBalanced: isBalanced(state),
+    totalCategories: totalCategories(state),
+    totalIncomes: totalIncome(state),
   }
 };
 
