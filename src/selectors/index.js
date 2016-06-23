@@ -8,7 +8,7 @@ export const incomes = (state) => _.values(state.incomes)
 const expenses = (state) => _.values(state.expenses)
 
 function sumByAmount(collection) {
-  return _.sumBy(collection, 'amount')
+  return _.sum(_.map(_.map(collection, 'amount'), parseFloat))
 }
 
 function _expensesForCategory(state, category) {
@@ -20,7 +20,7 @@ export function expensesForCategory(state, props) {
 }
 
 function _amountForCategory(state, id) {
-  return _.find(categories(state), {id}).amount
+  return parseFloat(_.find(categories(state), {id}).amount)
 }
 
 export function amountForCategory(state, props) {
@@ -63,4 +63,9 @@ export const amountToCategorize = createSelector(
   (totalIncome, totalCategories) => (
     _.round(totalIncome - totalCategories, 2)
   )
+)
+
+export const isBalanced = createSelector(
+  [amountToCategorize],
+  (amount) => (_.round(amount) === 0)
 )

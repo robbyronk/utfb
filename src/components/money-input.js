@@ -18,6 +18,6 @@ export default class MoneyInput extends Component {
 }
 
 MoneyInput.propTypes = {
-  amount: PropTypes.number.isRequired,
+  amount: PropTypes.any.isRequired,
   change: PropTypes.func
 }

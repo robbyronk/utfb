@@ -24,8 +24,8 @@ const initialState = {
   }
 }
 
-function castAmountToInt(category) {
-  return update(category, {amount: {$apply: (amount) => parseInt(amount) || 0}})
+function emptyAmountToZero(category) {
+  return update(category, {amount: {$apply: (amount) => amount || 0}})
 }
 
 function categories(state = initialState, {type, payload}) {
@@ -33,7 +33,7 @@ function categories(state = initialState, {type, payload}) {
     case CREATE_CATEGORY:
       return {...state, [payload.id]: payload}
     case UPDATE_CATEGORY:
-      return update(state, {[payload.id]: {$set: castAmountToInt(payload)}})
+      return update(state, {[payload.id]: {$set: emptyAmountToZero(payload)}})
   }
   return state
 }

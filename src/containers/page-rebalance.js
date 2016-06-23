@@ -1,10 +1,11 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import RebalanceRow from "../components/rebalance-row";
-import {rebalanceCategories,amountToCategorize} from "../selectors";
+import {rebalanceCategories, amountToCategorize} from "../selectors";
 import {updateCategory} from "../actions";
 
 class PageRebalance extends Component {
+  // 
   render() {
     return (
       <div>

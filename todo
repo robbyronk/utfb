@@ -78,6 +78,10 @@ maths:
 
 todo next:
 do calculations for buttons in selector
+- isBalanced -> boolean
+  (categorize and rebalance)
+- isOverspent -> boolean
+  (expenses)
 
 todo:
 come up with better names for things
@@ -90,11 +94,6 @@ delete mode button
 - changes table to delete mode table
 - hide add and finish button
 - show cancel and delete button
-
-can't input '50.0' into MoneyInput
- so can't input '50.05'
- need to save state as a string
- and do cast to float before calcs
 
 wire up basics
  - creating a new thing
