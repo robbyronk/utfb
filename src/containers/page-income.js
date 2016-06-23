@@ -2,10 +2,12 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import {createIncome, updateIncome} from "../actions";
 import IncomeTable from "../components/income-table";
+import {browserHistory} from "react-router";
 
 class PageIncome extends Component {
-  // todo datepicker
-  // todo next button goes to categorize income
+  gotoCategorizeIncome() {
+    browserHistory.push('/categorize-income')
+  }
 
   render() {
     return (
@@ -18,7 +20,9 @@ class PageIncome extends Component {
         <button className="alert hollow button expanded">Delete Incomes</button>
         <IncomeTable incomes={this.props.incomes}
                      updateIncome={this.props.updateIncome}/>
-        <button className="success button expanded">Next</button>
+        <button className="success button expanded"
+                onClick={this.gotoCategorizeIncome}>Next
+        </button>
       </div>
     )
   }
