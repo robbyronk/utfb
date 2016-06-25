@@ -3,9 +3,14 @@ import {connect} from "react-redux";
 import RebalanceRow from "../components/rebalance-row";
 import {rebalanceCategories, amountToCategorize} from "../selectors";
 import {updateCategory} from "../actions";
+import {isBalanced} from "../selectors/index";
+import {browserHistory} from "react-router";
 
 class PageRebalance extends Component {
-  // 
+  gotoAvailable() {
+    browserHistory.push('/available')
+  }
+
   render() {
     return (
       <div>
@@ -34,7 +39,10 @@ class PageRebalance extends Component {
           </tr>
           </tfoot>
         </table>
-        <button className="success button expanded">Finish</button>
+        { this.props.isBalanced
+          ? <button className="success button expanded" onClick={this.gotoAvailable}>Finish</button>
+          : <button className="disabled success button expanded" disabled="true">Finish</button>
+        }
       </div>
     )
   }
@@ -45,6 +53,7 @@ function mapStateToProps(state) {
   return {
     categories: rebalanceCategories(state),
     amountToCategorize: amountToCategorize(state),
+    isBalanced: isBalanced(state),
   }
 }
 
