@@ -69,3 +69,8 @@ export const isBalanced = createSelector(
   [amountToCategorize],
   (amount) => (_.round(amount) === 0)
 )
+
+export const isOverspent = createSelector(
+  [rebalanceCategories],
+  (categories) => _.some(_.values(categories), (category) => category.available < 0)
+)
