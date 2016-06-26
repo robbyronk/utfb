@@ -14,8 +14,8 @@ export default class ExpenseRow extends Component {
     this.props.change({...this.props.expense, payee: event.target.value})
   }
 
-  handleAmountChange(event) {
-    this.props.change({...this.props.expense, amount: event.target.value})
+  handleAmountChange(amount) {
+    this.props.change({...this.props.expense, amount})
   }
 
   handleCategoryChange(chosenCategory) {

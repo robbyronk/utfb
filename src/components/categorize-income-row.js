@@ -6,8 +6,8 @@ export default class CategorizeIncomeRow extends Component {
     this.props.changeCategory({...this.props.category, category: event.target.value})
   }
 
-  handleAmountChange(event) {
-    this.props.change({...this.props.category, amount: event.target.value})
+  handleAmountChange(amount) {
+    this.props.change({...this.props.category, amount})
   }
 
   render() {
