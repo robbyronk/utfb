@@ -1,5 +1,6 @@
 import update from "react-addons-update";
 import {CREATE_CATEGORY, UPDATE_CATEGORY} from "../actions";
+import {DELETE_CATEGORY} from "../actions/index";
 
 const initialState = {
   0: {
@@ -34,6 +35,8 @@ function categories(state = initialState, {type, payload}) {
       return {...state, [payload.id]: payload}
     case UPDATE_CATEGORY:
       return update(state, {[payload.id]: {$set: emptyAmountToZero(payload)}})
+    case DELETE_CATEGORY:
+      return _.omitBy(state, {id: payload.id})
   }
   return state
 }

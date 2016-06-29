@@ -9,13 +9,15 @@ export default class CategorizeIncomeTable extends Component {
         <tr>
           <td>Category</td>
           <td width="50%">Amount Allocated</td>
+          <td>Delete</td>
         </tr>
         </thead>
         <tbody>
         {
           _.values(this.props.categories)
             .map((category) =>
-              <CategorizeIncomeRow change={this.props.updateCategory}
+              <CategorizeIncomeRow delete={this.props.deleteCategory}
+                                   change={this.props.updateCategory}
                                    key={category.id}
                                    category={category}/>
             )
@@ -34,5 +36,6 @@ export default class CategorizeIncomeTable extends Component {
 
 CategorizeIncomeTable.propTypes = {
   categories: PropTypes.object.isRequired,
+  deleteCategory: PropTypes.func.isRequired,
   updateCategory: PropTypes.func.isRequired
 }

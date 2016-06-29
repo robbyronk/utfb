@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import {createCategory, updateCategory} from "../actions";
+import {createCategory, updateCategory, deleteCategory} from "../actions";
 import CategorizeIncomeTable from "../components/categorize-income-table";
 import {browserHistory} from "react-router";
 import {amountToCategorize, categories, incomes, isBalanced, totalCategories, totalIncome} from "../selectors";
@@ -23,7 +23,8 @@ class PageCategorizeIncome extends Component {
         <button className="alert hollow button expanded">Delete Categories</button>
         <p>Amount left to categorize: {this.props.amountToCategorize}</p>
         <CategorizeIncomeTable categories={this.props.categories}
-                           updateCategory={this.props.updateCategory}/>
+                               deleteCategory={this.props.deleteCategory}
+                               updateCategory={this.props.updateCategory}/>
         { this.props.isBalanced
           ? <button className="success button expanded" onClick={this.gotoAvailable}>Finish</button>
           : <button className="disabled success button expanded" disabled="true">Finish</button>
@@ -35,7 +36,7 @@ class PageCategorizeIncome extends Component {
 
 }
 
-const mapStateToProps = function(state) {
+const mapStateToProps = function (state) {
   return {
     amountToCategorize: amountToCategorize(state),
     categories: categories(state),
@@ -48,5 +49,6 @@ const mapStateToProps = function(state) {
 
 export default connect(mapStateToProps, {
   createCategory,
-  updateCategory
+  updateCategory,
+  deleteCategory
 })(PageCategorizeIncome)

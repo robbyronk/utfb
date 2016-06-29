@@ -10,6 +10,10 @@ export default class CategorizeIncomeRow extends Component {
     this.props.change({...this.props.category, amount})
   }
 
+  handleDelete() {
+    this.props.delete(this.props.category.id)
+  }
+
   render() {
     return (
       <tr>
@@ -24,6 +28,11 @@ export default class CategorizeIncomeRow extends Component {
                       change={this.handleAmountChange.bind(this)}
           />
         </td>
+        <td>
+          <button className="alert button"
+                  onClick={this.handleDelete.bind(this)}>Delete
+          </button>
+        </td>
       </tr>
     )
   }
@@ -32,5 +41,6 @@ export default class CategorizeIncomeRow extends Component {
 CategorizeIncomeRow.propTypes = {
   category: PropTypes.object.isRequired,
   change: PropTypes.func,
-  changeCategory: PropTypes.func
+  changeCategory: PropTypes.func,
+  delete: PropTypes.func,
 }
