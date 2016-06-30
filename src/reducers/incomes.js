@@ -1,5 +1,5 @@
 import update from "react-addons-update";
-import {CREATE_INCOME, UPDATE_INCOME} from "../actions";
+import {CREATE_INCOME, UPDATE_INCOME, DELETE_INCOME} from "../actions";
 
 const initialState = {
   0: {
@@ -16,6 +16,8 @@ function incomes(state = initialState, {type, payload}) {
       return {...state, [payload.id]: payload}
     case UPDATE_INCOME:
       return update(state, {[payload.id]: {$set: payload}})
+    case DELETE_INCOME:
+      return _.omitBy(state, payload)
   }
   return state
 }

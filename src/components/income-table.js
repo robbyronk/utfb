@@ -10,6 +10,7 @@ export default class IncomeTable extends Component {
           <td>Date</td>
           <td>Who</td>
           <td width="30%">Amount</td>
+          <td>Delete</td>
         </tr>
         </thead>
         <tbody>
@@ -17,6 +18,7 @@ export default class IncomeTable extends Component {
           _.values(this.props.incomes)
             .map((income) =>
               <IncomeRow change={this.props.updateIncome}
+                         delete={this.props.deleteIncome}
                          key={income.id}
                          income={income}
               />)
@@ -33,5 +35,6 @@ export default class IncomeTable extends Component {
 
 IncomeTable.propTypes = {
   incomes: PropTypes.object.isRequired,
+  deleteIncome: PropTypes.func.isRequired,
   updateIncome: PropTypes.func.isRequired
 }

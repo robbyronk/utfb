@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import {createIncome, updateIncome} from "../actions";
+import {createIncome, updateIncome, deleteIncome} from "../actions";
 import IncomeTable from "../components/income-table";
 import {browserHistory} from "react-router";
 
@@ -19,6 +19,7 @@ class PageIncome extends Component {
         </button>
         <button className="alert hollow button expanded">Delete Incomes</button>
         <IncomeTable incomes={this.props.incomes}
+                     deleteIncome={this.props.deleteIncome}
                      updateIncome={this.props.updateIncome}/>
         <button className="success button expanded"
                 onClick={this.gotoCategorizeIncome}>Next
@@ -37,5 +38,6 @@ function mapStateToProps(state) {
 
 export default connect(mapStateToProps, {
   createIncome,
+  deleteIncome,
   updateIncome
 })(PageIncome)

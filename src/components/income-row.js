@@ -17,6 +17,10 @@ export default class IncomeRow extends Component {
     this.props.change({...this.props.income, amount})
   }
 
+  handleDelete() {
+    this.props.delete(this.props.income.id)
+  }
+
   render() {
     return (
       <tr>
@@ -33,6 +37,11 @@ export default class IncomeRow extends Component {
         <td>
           <MoneyInput amount={this.props.income.amount}
                       change={this.handleAmountChange.bind(this)}/>
+        </td>
+        <td>
+          <button className="alert button"
+                  onClick={this.handleDelete.bind(this)}>Delete
+          </button>
         </td>
       </tr>
     )
