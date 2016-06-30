@@ -20,7 +20,6 @@ class PageCategorizeIncome extends Component {
         <button className="button expanded"
                 onClick={this.props.createCategory}>Add Category
         </button>
-        <button className="alert hollow button expanded">Delete Categories</button>
         <p>Amount left to categorize: {this.props.amountToCategorize}</p>
         <CategorizeIncomeTable categories={this.props.categories}
                                deleteCategory={this.props.deleteCategory}

@@ -77,11 +77,14 @@ maths:
  sum(incomes) - sum(expenses) == sum(available)
 
 todo next:
-delete buttons
-- income
+go through app and make sure everything works
 
 todo:
 come up with better names for things
+
+fix date when adding income
+
+
 
 wire up state with backend using sagas
 

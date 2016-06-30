@@ -23,12 +23,6 @@ export default class CategorizeIncomeTable extends Component {
             )
         }
         </tbody>
-        <tfoot>
-        <tr>
-          <td>Going into Overflow</td>
-          <td>$100</td>
-        </tr>
-        </tfoot>
       </table>
     )
   }
