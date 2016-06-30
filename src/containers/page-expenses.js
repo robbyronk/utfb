@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import {updateExpense} from "../actions";
+import {updateExpense, deleteExpense} from "../actions";
 import ExpenseTable from "../components/expense-table";
 import {browserHistory} from "react-router";
 import {isOverspent} from "../selectors/index";
@@ -21,6 +21,7 @@ class PageExpenses extends Component {
         <button className="button expanded">Add an Expense</button>
         <button className="alert hollow button expanded">Delete Expenses</button>
         <ExpenseTable expenses={this.props.expenses}
+                      deleteExpense={this.props.deleteExpense}
                       updateExpense={this.props.updateExpense}/>
         { this.props.isOverspent
           ? <button className="button expanded" onClick={this.gotoRebalance}>Next</button>
@@ -40,5 +41,6 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, {
+  deleteExpense,
   updateExpense
 })(PageExpenses)

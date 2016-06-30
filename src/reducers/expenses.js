@@ -1,5 +1,5 @@
 import update from "react-addons-update";
-import {CREATE_EXPENSE, UPDATE_EXPENSE} from "../actions";
+import {CREATE_EXPENSE, UPDATE_EXPENSE, DELETE_EXPENSE} from "../actions";
 
 const initialState = {
   0: {
@@ -17,6 +17,8 @@ function expenses(state = initialState, {type, payload}) {
       return {...state, [payload.id]: payload}
     case UPDATE_EXPENSE:
       return update(state, {[payload.id]: {$set: payload}})
+    case DELETE_EXPENSE:
+      return _.omitBy(state, payload)
   }
   return state
 }

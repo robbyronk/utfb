@@ -7,10 +7,11 @@ export default class ExpenseTable extends Component {
       <table>
         <thead>
         <tr>
-          <td width="20%">Date</td>
+          <td width="15%">Date</td>
           <td width="30%">Who</td>
           <td width="30%">Category</td>
-          <td width="20%">Amount</td>
+          <td width="15%">Amount</td>
+          <td width="10%">Delete</td>
         </tr>
         </thead>
         <tbody>
@@ -18,6 +19,7 @@ export default class ExpenseTable extends Component {
           _.values(this.props.expenses)
             .map((expense) =>
               <ExpenseRow change={this.props.updateExpense}
+                          delete={this.props.deleteExpense}
                           key={expense.id}
                           expense={expense}
               />)
@@ -34,5 +36,6 @@ export default class ExpenseTable extends Component {
 
 ExpenseTable.propTypes = {
   expenses: PropTypes.object.isRequired,
+  deleteExpense: PropTypes.func.isRequired,
   updateExpense: PropTypes.func.isRequired
 }

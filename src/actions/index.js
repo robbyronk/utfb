@@ -103,3 +103,13 @@ export function updateExpense(expense) {
     payload: expense
   }
 }
+
+export const DELETE_EXPENSE = 'DELETE_EXPENSE'
+export function deleteExpense(id) {
+  return {
+    type: DELETE_EXPENSE,
+    payload: {
+      id
+    }
+  }
+}

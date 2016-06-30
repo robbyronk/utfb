@@ -22,6 +22,10 @@ export default class ExpenseRow extends Component {
     this.props.change({...this.props.expense, category: chosenCategory.id})
   }
 
+  handleDelete() {
+    this.props.delete(this.props.expense.id)
+  }
+
   render() {
     return (
       <tr>
@@ -43,12 +47,18 @@ export default class ExpenseRow extends Component {
           <MoneyInput amount={this.props.expense.amount}
                       change={this.handleAmountChange.bind(this)}/>
         </td>
+        <td>
+          <button className="alert button"
+                  onClick={this.handleDelete.bind(this)}>Delete
+          </button>
+        </td>
       </tr>
     )
   }
 }
 
 ExpenseRow.propTypes = {
+  change: PropTypes.func.isRequired,
+  delete: PropTypes.func.isRequired,
   expense: PropTypes.object.isRequired,
-  change: PropTypes.func.isRequired
 }
