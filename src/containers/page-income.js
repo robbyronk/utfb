@@ -17,7 +17,6 @@ class PageIncome extends Component {
                 onClick={this.props.createIncome}>
         Add an Income
         </button>
-        <button className="alert hollow button expanded">Delete Incomes</button>
         <IncomeTable incomes={this.props.incomes}
                      deleteIncome={this.props.deleteIncome}
                      updateIncome={this.props.updateIncome}/>
