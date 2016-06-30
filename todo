@@ -78,29 +78,11 @@ maths:
 
 todo next:
 delete buttons
-- inco me
-- expenses
+- income
 
 todo:
 come up with better names for things
 
-delete mode button
-- changes to new page
-- changes table to delete mode table
-- hide add and finish button
-- show cancel and delete button
-
-wire up basics
- - creating a new thing
- - changing things
- - deleting things
- - going to new pages
-
 wire up state with backend using sagas
 
-write backend
- - auth0 for auth
- - crud endpoints
-  - categories
-  - incomes
-  - expenses
+wire in horizon
