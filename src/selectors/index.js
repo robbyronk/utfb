@@ -8,7 +8,7 @@ export const incomes = (state) => _.values(state.incomes)
 const expenses = (state) => _.values(state.expenses)
 
 function sumByAmount(collection) {
-  return _.sum(_.map(_.map(collection, 'amount'), parseFloat))
+  return _.sum(_.filter(_.map(_.map(collection, 'amount'), parseFloat), _.isFinite))
 }
 
 function _expensesForCategory(state, category) {
