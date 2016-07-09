@@ -36,6 +36,7 @@
     "react-select": "^1.0.0-beta13",
     "redux": "^3.2.1",
     "redux-logger": "^2.5.2",
+    "redux-saga": "^0.11.0",
     "redux-thunk": "^1.0.3",
     "reselect": "^2.5.1",
     "what-input": "^1.1.4"
