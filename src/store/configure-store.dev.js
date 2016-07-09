@@ -1,11 +1,14 @@
-import { createStore, applyMiddleware, compose } from 'redux'
-import { syncHistory } from 'react-router-redux'
-import { browserHistory } from 'react-router'
-import DevTools from '../containers/dev-tools'
-import thunk from 'redux-thunk'
-import createLogger from 'redux-logger'
-import rootReducer from '../reducers'
-import customMiddleware from '../middleware'
+import {createStore, applyMiddleware, compose} from "redux";
+import {syncHistory} from "react-router-redux";
+import {browserHistory} from "react-router";
+import DevTools from "../containers/dev-tools";
+import createSagaMiddleware from "redux-saga";
+import createLogger from "redux-logger";
+import rootReducer from "../reducers";
+import customMiddleware from "../middleware";
+import mySaga from "../sagas";
+
+const sagaMiddleware = createSagaMiddleware()
 
 const reduxRouterMiddleware = syncHistory(browserHistory)
 
@@ -14,11 +17,13 @@ export default function configureStore(initialState) {
     rootReducer,
     initialState,
     compose(
-      applyMiddleware(thunk, customMiddleware, reduxRouterMiddleware, createLogger()),
+      applyMiddleware(sagaMiddleware, customMiddleware, reduxRouterMiddleware, createLogger()),
       DevTools.instrument()
     )
   )
 
+  sagaMiddleware.run(mySaga)
+  
   // Required for replaying actions from devtools to work
   reduxRouterMiddleware.listenForReplays(store)
 
@@ -32,3 +37,4 @@ export default function configureStore(initialState) {
 
   return store
 }
+
