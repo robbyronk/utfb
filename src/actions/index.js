@@ -24,6 +24,14 @@ export function updateIncome(income) {
   }
 }
 
+export const UPDATE_INCOME_REQUEST = 'UPDATE_INCOME_REQUEST'
+export function updateIncomeRequest(payload) {
+  return {
+    type: UPDATE_INCOME_REQUEST,
+    payload
+  }
+}
+
 export const DELETE_INCOME = 'DELETE_INCOME'
 export function deleteIncome(id) {
   return {

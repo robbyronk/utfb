@@ -1,6 +1,10 @@
 import {takeEvery, takeLatest} from "redux-saga";
-import {put} from "redux-saga/effects";
-import {createIncome as createIncomeAction} from "../actions";
+import {fork, put} from "redux-saga/effects";
+import {
+  createIncome as createIncomeAction,
+  updateIncome as updateIncomeAction,
+  UPDATE_INCOME_REQUEST
+} from "../actions";
 import _ from "lodash";
 
 function* createIncome(action) {
@@ -13,10 +17,12 @@ function* createIncome(action) {
   yield put(createIncomeAction(income))
 }
 
-function* watchNewIncome() {
-  yield* takeEvery("NEW_INCOME", createIncome)
+function* updateIncome(action) {
+  const income = action.payload
+  yield put(updateIncomeAction(income))
 }
 
 export default function* rootSaga() {
-  yield fork(watchNewIncome)
+  yield fork(takeEvery, 'NEW_INCOME', createIncome)
+  yield fork(takeLatest, UPDATE_INCOME_REQUEST, updateIncome)
 }
