@@ -6,7 +6,7 @@ import createSagaMiddleware from "redux-saga";
 import createLogger from "redux-logger";
 import rootReducer from "../reducers";
 import customMiddleware from "../middleware";
-import mySaga from "../sagas";
+import rootSaga from "../sagas";
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -22,7 +22,7 @@ export default function configureStore(initialState) {
     )
   )
 
-  sagaMiddleware.run(mySaga)
+  sagaMiddleware.run(rootSaga)
   
   // Required for replaying actions from devtools to work
   reduxRouterMiddleware.listenForReplays(store)

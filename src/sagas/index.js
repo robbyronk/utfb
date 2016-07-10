@@ -13,8 +13,10 @@ function* createIncome(action) {
   yield put(createIncomeAction(income))
 }
 
-function* mySaga() {
+function* watchNewIncome() {
   yield* takeEvery("NEW_INCOME", createIncome)
 }
 
-export default mySaga;
+export default function* rootSaga() {
+  yield fork(watchNewIncome)
+}
