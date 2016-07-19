@@ -77,14 +77,15 @@ maths:
  sum(incomes) - sum(expenses) == sum(available)
 
 todo next:
-go through app and make sure everything works
+horizon
 
 todo:
 come up with better names for things
 
 fix date when adding income
 
-
+when adding a category, the amount does not default to zero
+ should be left to when the backend is wired in
 
 wire up state with backend using sagas
 
