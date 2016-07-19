@@ -32,6 +32,14 @@ export function updateIncomeRequest(payload) {
   }
 }
 
+export const SET_INCOMES = 'SET_INCOMES'
+export function setIncomes(payload) {
+  return {
+    type: SET_INCOMES,
+    payload
+  }
+}
+
 export const DELETE_INCOME = 'DELETE_INCOME'
 export function deleteIncome(id) {
   return {
