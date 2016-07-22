@@ -49,27 +49,10 @@ export function deleteIncome(id) {
   }
 }
 
-export const UPDATE_BUDGET = 'UPDATE_BUDGET'
-export function updateBudget(budget) {
-  return {
-    type: UPDATE_BUDGET,
-    payload: budget
-  }
-}
-
-const defaultCategory = {
-  name: 'Yet to be named'
-}
-
 export const CREATE_CATEGORY = 'CREATE_CATEGORY'
 export function createCategory() {
-  const id = _.uniqueId('category')
   return {
     type: CREATE_CATEGORY,
-    payload: {
-      ...defaultCategory,
-      id
-    }
   }
 }
 
@@ -88,6 +71,14 @@ export function deleteCategory(id) {
     payload: {
       id
     }
+  }
+}
+
+export const SET_CATEGORIES = 'SET_CATEGORIES'
+export function setCategories(arrayOfCategories) {
+  return {
+    type: SET_CATEGORIES,
+    payload: _.keyBy(arrayOfCategories, 'id')
   }
 }
 

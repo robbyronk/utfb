@@ -2,6 +2,10 @@ import {takeEvery, eventChannel} from "redux-saga";
 import {fork, take, call, put} from "redux-saga/effects";
 import hz from "../horizon";
 import {
+  setCategories,
+  CREATE_CATEGORY,
+  UPDATE_CATEGORY,
+  DELETE_CATEGORY,
   setIncomes,
   CREATE_INCOME,
   UPDATE_INCOME,
@@ -94,7 +98,48 @@ function* handleExpenses() {
   yield fork(takeEvery, DELETE_EXPENSE, deleteExpense, hzExpenses)
 }
 
+function* createCategory(hzCategories, action) {
+  const category = {
+    name: 'To be named',
+    amount: 0
+  }
+  yield hzCategories.store(category)
+}
+
+function* updateCategory(hzCategories, action) {
+  yield hzCategories.replace(action.payload)
+}
+
+function* deleteCategory(hzCategories, action) {
+  yield hzCategories.remove(action.payload.id)
+}
+
+function* subscribeCategories(hzCategories) {
+  return eventChannel(emit => {
+    hzCategories.watch().subscribe((categories) => {
+      emit(setCategories(categories))
+    })
+  })
+}
+
+function* watchCategories(hzCategories) {
+  const channel = yield call(subscribeCategories, hzCategories)
+  while (true) {
+    let action = yield take(channel)
+    yield put(action)
+  }
+}
+
+function* handleCategories() {
+  const hzCategories = hz('categories')
+  yield fork(watchCategories, hzCategories)
+  yield fork(takeEvery, CREATE_CATEGORY, createCategory, hzCategories)
+  yield fork(takeEvery, UPDATE_CATEGORY, updateCategory, hzCategories)
+  yield fork(takeEvery, DELETE_CATEGORY, deleteCategory, hzCategories)
+}
+
 export default function* rootSaga() {
   yield fork(handleIncomes)
   yield fork(handleExpenses)
+  yield fork(handleCategories)
 }
