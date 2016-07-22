@@ -16,6 +16,8 @@ import {
   DELETE_EXPENSE
 } from "../actions/index";
 
+// todo DRY
+
 function* createIncome(hzIncomes, action) {
   const income = {
     date: '2016-01-01',
