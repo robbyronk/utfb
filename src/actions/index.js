@@ -9,10 +9,9 @@ export function newIncome() {
 }
 
 export const CREATE_INCOME = 'CREATE_INCOME'
-export function createIncome(payload) {
+export function createIncome() {
   return {
     type: CREATE_INCOME,
-    payload
   }
 }
 
@@ -33,10 +32,10 @@ export function updateIncomeRequest(payload) {
 }
 
 export const SET_INCOMES = 'SET_INCOMES'
-export function setIncomes(payload) {
+export function setIncomes(arrayOfIncomes) {
   return {
     type: SET_INCOMES,
-    payload
+    payload: _.keyBy(arrayOfIncomes, 'id')
   }
 }
 
