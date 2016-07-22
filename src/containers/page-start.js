@@ -5,8 +5,7 @@ import MoneyInput from "../components/money-input";
 class PageIncome extends Component {
 
   render() {
-    // todo date picker for paycheck
-    // todo use flex instead of all these p tags
+    // todo
     return (
       <div>
         <h3>Begin a New Budget</h3>
