@@ -91,21 +91,10 @@ export function deleteCategory(id) {
   }
 }
 
-const defaultExpense = {
-  date: '2016-01-01',
-  payee: '',
-  amount: 0
-}
-
 export const CREATE_EXPENSE = 'CREATE_EXPENSE'
 export function createExpense() {
-  const id = _.uniqueId('expense')
   return {
     type: CREATE_EXPENSE,
-    payload: {
-      ...defaultExpense,
-      id
-    }
   }
 }
 
@@ -124,5 +113,13 @@ export function deleteExpense(id) {
     payload: {
       id
     }
+  }
+}
+
+export const SET_EXPENSES = 'SET_EXPENSES'
+export function setExpenses(arrayOfExpenses) {
+  return {
+    type: SET_EXPENSES,
+    payload: _.keyBy(arrayOfExpenses, 'id')
   }
 }
