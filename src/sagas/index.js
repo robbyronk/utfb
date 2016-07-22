@@ -1,8 +1,7 @@
-import {takeEvery, takeLatest, eventChannel} from "redux-saga";
+import {takeEvery, eventChannel} from "redux-saga";
 import {fork, take, call, put} from "redux-saga/effects";
-import {updateIncome as updateIncomeAction, UPDATE_INCOME_REQUEST} from "../actions";
 import hz from "../horizon";
-import {setIncomes} from "../actions/index";
+import {setIncomes, CREATE_INCOME, UPDATE_INCOME, DELETE_INCOME} from "../actions/index";
 
 function* createIncome(hzIncomes, action) {
   const income = {
@@ -13,9 +12,12 @@ function* createIncome(hzIncomes, action) {
   yield hzIncomes.store(income)
 }
 
-function* updateIncome(action) {
-  const income = action.payload
-  yield put(updateIncomeAction(income))
+function* updateIncome(hzIncomes, action) {
+  yield hzIncomes.replace(action.payload)
+}
+
+function* deleteIncome(hzIncomes, action) {
+  yield hzIncomes.remove(action.payload.id)
 }
 
 function* subscribeIncomes(hzIncomes) {
@@ -37,10 +39,11 @@ function* watchIncomes(hzIncomes) {
 function* handleIncomes() {
   const hzIncomes = hz('incomes')
   yield fork(watchIncomes, hzIncomes)
-  yield fork(takeEvery, 'NEW_INCOME', createIncome, hzIncomes)
+  yield fork(takeEvery, CREATE_INCOME, createIncome, hzIncomes)
+  yield fork(takeEvery, UPDATE_INCOME, updateIncome, hzIncomes)
+  yield fork(takeEvery, DELETE_INCOME, deleteIncome, hzIncomes)
 }
 
 export default function* rootSaga() {
-  yield fork(takeLatest, UPDATE_INCOME_REQUEST, updateIncome)
   yield fork(handleIncomes)
 }
