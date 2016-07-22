@@ -77,16 +77,13 @@ maths:
  sum(incomes) - sum(expenses) == sum(available)
 
 todo next:
-horizon
+mobile friendly ui
 
 todo:
 come up with better names for things
 
-fix date when adding income
+make ui mobile friendly
 
-when adding a category, the amount does not default to zero
- should be left to when the backend is wired in
+include horizon setup in this project
 
-wire up state with backend using sagas
-
-wire in horizon
+deploy on server
