@@ -1,13 +1,6 @@
 import _ from "lodash";
 
 
-export const NEW_INCOME = 'NEW_INCOME'
-export function newIncome() {
-  return {
-    type: NEW_INCOME,
-  }
-}
-
 export const CREATE_INCOME = 'CREATE_INCOME'
 export function createIncome() {
   return {
@@ -20,14 +13,6 @@ export function updateIncome(income) {
   return {
     type: UPDATE_INCOME,
     payload: income
-  }
-}
-
-export const UPDATE_INCOME_REQUEST = 'UPDATE_INCOME_REQUEST'
-export function updateIncomeRequest(payload) {
-  return {
-    type: UPDATE_INCOME_REQUEST,
-    payload
   }
 }
 
