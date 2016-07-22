@@ -3,7 +3,7 @@ import MoneyInput from "../components/money-input";
 
 export default class CategorizeIncomeRow extends Component {
   handleCategoryChange(event) {
-    this.props.changeCategory({...this.props.category, category: event.target.value})
+    this.props.change({...this.props.category, name: event.target.value})
   }
 
   handleAmountChange(amount) {
