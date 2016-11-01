@@ -1,6 +1,11 @@
-# r³ Foundation Boilerplate
+# Use The Fine Budget
 
-Minimal Boilerplate for Redux + React + React-Router-Redux and Foundation
+Made with:
+
+- React
+- Redux
+- Redux Sagas 
+- Horizon (RIP in peace)
 
 ## Usage
 
